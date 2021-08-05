@@ -1,0 +1,304 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #39A2DB;
+  --secondary-color: #A2DBFA;
+  --color-btn: #053742;
+}
+
+a{
+  display: block;
+  text-decoration: none;
+  color: #000;
+}
+
+body {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+button{
+  cursor: pointer;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: auto 0;
+}
+
+ul{
+  list-style: none;
+}
+
+/* items that will not display on widescreen */
+#search-bar-mobile, .menu{
+  display: none;
+}
+
+/* color */
+.color-navbar {
+  background-color: var(--primary-color);
+}
+
+.color-navbar2 {
+  background-color: var(--secondary-color);
+}
+
+.color-btn {
+  background: var(--color-btn);
+}
+
+/* Button class for all */
+.btn{
+  border-radius: 0.3rem;
+  background-color: transparent;
+}
+
+/* navigation */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 3rem;
+  z-index: 5;
+}
+
+.nav-brand {
+  color: #fff;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.nav-search {
+  margin-left: auto;
+}
+
+.search-form {
+  display: flex;
+}
+
+.search-input {
+  border: none;
+  border-radius: 5px 0 0 5px;
+  width: 18rem;
+  padding-left: 1rem;
+  font-size: 1.5rem;
+  outline: none;
+}
+.search-input:focus, .search-input:focus + .search-btn{
+  border: 0.1rem solid var(--color-btn);
+}
+
+.search-btn {
+  border: none;
+  border-radius: 0 5px 5px 0;
+  color: #fff;
+  cursor: pointer;
+  width: 3rem;
+  height: 2.6rem;
+  padding: 0.5 0;
+}
+
+.search-icon {
+  font-size: 20px;
+}
+
+.shopping-cart {
+  color: var(--color-btn);
+  font-size: 2rem;
+  margin: auto 2rem;
+}
+
+.cart-icon {
+  width: 2.6rem;
+}
+
+.nav-login, .nav-signup{
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 400;
+  padding: 0 0.5rem;
+}
+
+.nav-login:hover, .nav-signup:hover{
+  text-decoration: underline;
+}
+
+/* profile */
+.user-profile {
+  margin-left: 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.user-img {
+  background-color: transparent;
+  border: none;
+}
+
+.profile-img {
+  border-radius: 50%;
+  margin: auto 0;
+  width: 50px;
+}
+
+.profile-settings {
+  background-color: #fff;
+  border-radius: 0.3rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  width: 20rem;
+  line-height: 2;
+  top:70px;
+  transition: all 0.3s ease-out;
+  transform: translateY(-22px);
+  right: 10px;
+  position: absolute;
+  overflow: hidden;
+  opacity: 0;
+  z-index: 0;
+
+}
+.toggle-user-menu {
+  transform: translateY(0px);
+  opacity: 1;
+  z-index: 3;
+}
+
+.user-name{
+  align-items: center;
+  color: #fff;
+  display: flex;
+  font-size: 1.2rem;
+  justify-content: space-between;
+  padding: 0.5rem;
+}
+
+.profile-list {
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin: 0.25rem auto;;
+
+}
+.profile-list li{
+  padding: 0.25rem 0.5rem 0.25rem 1.5rem;
+
+}
+.profile-list li:hover{
+  background-color: #A2DBFA;
+
+}
+
+/* product cartigory */
+.product-cartigory{
+ display: flex;
+ justify-content: space-between;
+ padding: 0.5rem 3rem;
+
+}
+
+/* for phone smallscreen */
+.cartigory-wrapper-phone{
+  display: none;
+}
+
+.cartigory-wrapper{
+  display: flex;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.cartigory-items{
+  border: none;
+  cursor: pointer;
+  position: relative;
+  width: 100%;
+}
+
+.cartigory-name{
+  font-size: 1rem;
+  padding: 0.5rem;
+  width: 100%;
+}
+
+.cartigory-items:hover{
+  border-radius: 0.3rem 0.3rem 0 0;
+  background-color: #053742;
+  color: #fff;
+}
+
+.cartigory-name:hover + .item-list{
+  display: block;
+}
+
+.item-list{
+  background-color: #fff;
+  border-radius: 0 0 0.3rem 0.3rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  overflow: hidden;
+  text-align: center;
+  display: none;
+  width: 100%;
+  position: absolute;
+}
+
+.item-list li{
+  padding: 0.5rem 0;
+}
+
+.item-list li:hover{
+  background-color: #A2DBFA;
+}
+
+.item-list li a{
+  color: #000;
+  width: 100%;
+}
+
+.item-list:hover{
+  display: block;
+}
+
+/* product cards */
+.cards-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 2.5rem 2rem 0.5rem 2rem;
+  position: relative;
+}
+
+.cards-item{
+  border-radius: 0.3rem;
+  margin: 0.2rem;
+  width: 12rem;
+  height: 15rem;
+  padding: 0.5rem;
+}
+
+.cards-item:hover{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.product-img{
+  border-radius: 0.3rem;
+  width: 100%;
+}
+.cards-details{
+  color: #000;
+  padding: 0.5rem 0;
+}
+.product-name{
+  font-weight: 600;
+  padding-bottom: 0.5rem;
+}
+
+footer{
+  background-color: var(--primary-color);
+  color: #fff;
+  text-align: center;
+  padding: 0.5rem 0;
+}

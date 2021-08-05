@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <!-- Fontsawesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- local css -->
+  <link rel="stylesheet" media="screen and (min-width: 900px)" href="css/widescreen.css" />
+  <link rel="stylesheet" media="screen and (max-width: 899px)" href="css/smallscreen.css" />
+  <link rel="stylesheet" href="css/user-profile.css">
+  <title>Profile</title>
+</head>
+
+<body>
+  <!-- navigation bar -->
+  <section id="title">
+
+    <nav class="navbar color-navbar">
+
+      <!-- menu -->
+      <div class="menu">
+        <!-- hamburger menu icon -->
+        <button class="hamburger" id="hamburger-menu">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </button>
+        <!-- close menu icon-->
+        <button class="close-icon" id="close-menu-icon">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <!-- site name -->
+      <a class="nav-brand" href="/">site name</a>
+
+      <!-- cart -->
+      <a class="shopping-cart" href="#">
+        <span class="fas fa-shopping-cart cart-icon"></span>
+      </a>
+      <!-- profile -->
+      <ul class="profile-wrapper" id="menu-on-phone">
+        <li>
+          <div class="user-profile" id="profile-menu">
+            <button class="user-img">
+              <img class="profile-img" src="logo/profile.jpeg" alt="profile imge">
+            </button>
+          </div>
+
+          <ul>
+            <li>
+              <div class="profile-settings" id="prof-settings">
+                <div class="user-name color-btn">
+                  
+                  <% if(user) { %>
+
+                    <h3><%= user[0].user_name %> </h3>
+                    <p>ID : #<%= user[0].id %> </p>
+                    
+                </div>
+                <ul class="profile-list">
+
+                  <li><a href="/">Home</a></li>
+
+                  <li>
+                    <a href="#">Chats</a>
+                  </li>
+                  <li>
+                    <a href="#">Settings</a>
+                  </li>
+                  <li>
+                    <a href="#">Sign out</a>
+                  </li>
+
+                </ul>
+
+                <% }else{ %>
+
+                  <h3>user name</h3>
+                  <p>ID : #145f</p>
+              </div>
+              <ul class="profile-list">
+
+                <li><a href="/">Home</a></li>
+
+                <li>
+                  <a href="#">Chats</a>
+                </li>
+                <li>
+                  <a href="#">Settings</a>
+                </li>
+                <li>
+                  <a href="#">Sign out</a>
+                </li>
+
+              </ul>
+
+              <% } %>
+                </div>
+            </li>
+
+          </ul>
+        </li>
+      </ul>
+
+    </nav>
+    <!--start of profile-->
+    <main class="prof-pg">
+
+      <!--profile name-->
+      <div class="prof-hd color-navbar">
+        <h1>Profile</h1>
+      </div>
+      <div class="prof">
+        <!--profile image-->
+        <img class="prof-img" src="logo/profile.jpeg" alt="user-image">
+        <div class="uaer-ID">
+          <p>
+            <strong>ID :</strong> #145f
+          </p>
+        </div>
+
+      </div>
+      <!--profile details-->
+      <form class="prof-form ">
+        <div class="d-flex">
+
+          <div class="prof-name">
+            <label class="label" for="name">Name:</label>
+            <label class="label" for="email">Email:</label>
+            <label class="label" for="username">Username:</label>
+          </div>
+          <div class="prof-input">
+            <input id="name" class="box" type="text">
+            <input id="email" class="box" type="email">
+            <input id="username" class="box" type="text">
+          </div>
+          <div class="edit-icon">
+            <span class="fas fa-edit" for="name"></span>
+            <span class="fas fa-edit" for="email"></span>
+            <span class="fas fa-edit" for="username"></span>
+          </div>
+        </div>
+        <button class="btn save-btn" type="submit" name="button">Save</button>
+      </form>
+
+
+      <div class="prof-fp">
+        <a href="forgot.html">Want To Change Your Password?</a>
+      </div>
+
+    </main>
+    <footer class="color-navbar">
+      <span>i'm here</span>
+    </footer>
+    <script src="js/javaScript.js" charset="utf-8"></script>
+</body>
+
+</html>
