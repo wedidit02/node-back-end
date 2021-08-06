@@ -31,11 +31,11 @@
 
         </nav>
     </section>
-    <% try { %> 
+    
+            <% if (messages.error) { %> 
+               <h1><%= messages.error  %> </h1>
+        <% }%>
 
-            <% if (inform !== '') { %> 
-               <p><%= inform  %> <p>
-        <% }} catch (e) {} %> 
     <div class="main-container">
         
 

@@ -73,8 +73,10 @@
             <li>
               <div class="profile-settings" id="prof-settings">
                 <div class="user-name color-btn">
+                  <% if(userId) { %> 
                   <h3>user name</h3>
-                  <p>ID : #145f</p>
+                  <p>ID : # <%= userId %></p>
+                  <% } %> 
                 </div>
                 <ul class="profile-list">
 
@@ -89,7 +91,7 @@
                     <a href="#">Settings</a>
                   </li>
                   <li>
-                    <a href="#">Sign out</a>
+                    <a href="logout">Sign out</a>
                   </li>
 
                 </ul>

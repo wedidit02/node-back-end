@@ -1,62 +1,72 @@
 const express = require("express");
 const router = express.Router();
+const passport = require('passport');
+const flash = require('express-flash');
+const session = require('express-session');
 const bodyParser = require("body-parser");
 const pool = require('../databases/database');
 const bcrypt = require('bcrypt');
+const methodOverride = require('method-override');
+
+const passportConfig = require('../../auth/passport-config');
+//const { route } = require(".");
+passportConfig(passport);
+
 
 router.use(express.static("public"))
-router.use(bodyParser.urlencoded({
-  extended: true
-}));
+//router.use(express.urlencoded({ extended: false }));
+router.use(bodyParser.urlencoded({extended: true} ));
+router.use(flash());
+router.use(methodOverride('_method'));
+router.use(session({
+  secret: process.env.SECRET,
+  resave: false,
+  saveUninitialized: false
+  //cookie:({ maxAge: 2 * 60})
+}))
+
+router.use(passport.initialize());
+router.use(passport.session());
+
+router.get('', checkAuthenticated, (req, res) => {
+  console.log(req.user)
+     res.render("index", {userId: req.user});
+ 
+ });
+ 
 
 //RENDING USER PROFILE PAGE
-router.get('/profile', (req, res) => {
+router.get('/profile', checkAuthenticated, (req, res) => {
   res.render("userprofile");
 });
 
 //RENDING LOG IN PAGE
-router.get("/login", (req, res) => {
+router.get("/login", checkNotAuthenticated, (req, res) => {
   res.render("login")
 });
 
 //RENDING REGISTER PAGE
-router.get("/signup", (req, res) => {
+router.get("/signup", checkNotAuthenticated,(req, res) => {
   res.render("register")
 });
 
+
+
+
+
 //LOGING IN
-router.post("/login", async (req, res) => {
-  try {
-    const {
-      email,
-      password
-    } = req.body;
-    const method = req.route.methods
+router.post("/login",checkNotAuthenticated, passport.authenticate('local-login', {
+  successRedirect: '/user',
+  failureRedirect: '/user/login',
+  failureFlash: true
+}));
+//console.log({successRedirect: '/user'})
 
-    const verifyQuery = 'SELECT id, password FROM users WHERE email=? OR user_name=?'
-    const rows = await pool.query(verifyQuery, [email, email]);
 
-    if (rows !== 0) {
-
-      const validatePassword = await bcrypt.compare(password, rows[0].password);
-
-      if (validatePassword) {
-        //res.render('userprofile', { user: rows });
-        res.redirect(`/${rows[0].id}`);
-      } else {
-        res.render('login', { inform: 'Password incorrect..' });
-      }
-
-    } else {
-      res.render('login', { inform: 'check your Email or User Name or you don´t have account' });
-    }
-
-  } catch (err) {
-    console.log(err);
-
-    res.render('login', { inform: 'check your Email or User Name or you don´t have account' });
-  }
-});
+router.get('/logout',checkAuthenticated, (req, res) =>{
+  req.logOut()
+  res.redirect('login');
+})
 
 
 //REGISTER FOR AN ACCOUNT
@@ -89,7 +99,22 @@ router.post("/signup", async (req, res) => {
 });
 
 
+function checkAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next()
+  }
 
+  res.redirect('login')
+}
+
+function checkNotAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    console.log(req.user)
+
+    return res.redirect('/user')
+  }
+  next()
+}
 
 
 
