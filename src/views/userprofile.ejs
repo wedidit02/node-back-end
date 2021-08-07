@@ -44,7 +44,9 @@
       <a class="shopping-cart" href="#">
         <span class="fas fa-shopping-cart cart-icon"></span>
       </a>
+
       <!-- profile -->
+      <% if(userId) { %>
       <ul class="profile-wrapper" id="menu-on-phone">
         <li>
           <div class="user-profile" id="profile-menu">
@@ -57,54 +59,20 @@
             <li>
               <div class="profile-settings" id="prof-settings">
                 <div class="user-name color-btn">
-                  
-                  <% if(user) { %>
 
-                    <h3><%= user[0].user_name %> </h3>
-                    <p>ID : #<%= user[0].id %> </p>
-                    
+                  <h3><%= userId.name%></h3>
+
                 </div>
                 <ul class="profile-list">
 
                   <li><a href="/">Home</a></li>
-
-                  <li>
-                    <a href="#">Chats</a>
-                  </li>
-                  <li>
-                    <a href="#">Settings</a>
-                  </li>
-                  <li>
-                    <a href="#">Sign out</a>
-                  </li>
+                  <li><a href="#">Chats</a></li>
+                  <li><a href="#">Settings</a></li>
+                  <li><a href="logout">Sign out</a></li>
 
                 </ul>
-
-                <% }else{ %>
-
-                  <h3>user name</h3>
-                  <p>ID : #145f</p>
               </div>
-              <ul class="profile-list">
-
-                <li><a href="/">Home</a></li>
-
-                <li>
-                  <a href="#">Chats</a>
-                </li>
-                <li>
-                  <a href="#">Settings</a>
-                </li>
-                <li>
-                  <a href="#">Sign out</a>
-                </li>
-
-              </ul>
-
-              <% } %>
-                </div>
             </li>
-
           </ul>
         </li>
       </ul>
@@ -121,9 +89,7 @@
         <!--profile image-->
         <img class="prof-img" src="logo/profile.jpeg" alt="user-image">
         <div class="uaer-ID">
-          <p>
-            <strong>ID :</strong> #145f
-          </p>
+          <p><strong>ID : # </strong> <%= userId._id %></p>
         </div>
 
       </div>
@@ -133,27 +99,28 @@
 
           <div class="prof-name">
             <label class="label" for="name">Name:</label>
-            <label class="label" for="email">Email:</label>
             <label class="label" for="username">Username:</label>
+            <label class="label" for="email">Email:</label>
           </div>
           <div class="prof-input">
-            <input id="name" class="box" type="text">
-            <input id="email" class="box" type="email">
-            <input id="username" class="box" type="text">
+            <input id="name" class="box" type="text" value="<%= userId.name %>">
+            <input id="username" class="box" type="text" value="<%= userId.username %>">
+            <input id="email" class="box" type="email" value="<%= userId.email %>">
           </div>
           <div class="edit-icon">
             <span class="fas fa-edit" for="name"></span>
-            <span class="fas fa-edit" for="email"></span>
             <span class="fas fa-edit" for="username"></span>
+            <span class="fas fa-edit" for="email"></span>
           </div>
         </div>
         <button class="btn save-btn" type="submit" name="button">Save</button>
       </form>
 
-
       <div class="prof-fp">
         <a href="forgot.html">Want To Change Your Password?</a>
       </div>
+
+      <% } %>
 
     </main>
     <footer class="color-navbar">

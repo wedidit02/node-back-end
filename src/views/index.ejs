@@ -7,8 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
   <!-- Fontsawesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous"
-    referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Google fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,6 +27,8 @@
   <!-- navigation bar -->
   <section id="title">
     <nav class="navbar color-navbar">
+      <% if(userId !==null ) { %>
+
       <!-- menu -->
       <div class="menu">
         <!-- hamburger menu icon -->
@@ -39,13 +42,15 @@
           <i class="fas fa-times"></i>
         </button>
       </div>
+      <% } %>
       <!-- site name -->
       <a class="nav-brand" href="#">site name</a>
 
       <!-- search -->
       <div class="nav-search">
         <form class="search-form">
-          <input class="search-input" type="search" name="q" aria-label="Search through site content" placeholder="search" />
+          <input class="search-input" type="search" name="q" aria-label="Search through site content"
+            placeholder="search" />
           <button class="search-btn color-btn"><i class="fas fa-search search-icon"></i></button>
         </form>
       </div>
@@ -54,11 +59,15 @@
       <a class="shopping-cart" href="#">
         <span class="fas fa-shopping-cart cart-icon"></span>
       </a>
+      <% if(userId===null ) { %>
 
       <!-- nav login button -->
       <a class="nav-login" href="/user/login">login</a>
       <!-- nav sign up button -->
       <a class="nav-signup" href="/user/signup">Sign up</a>
+      <% } %>
+
+      <% if(userId !==null ) { %>
 
       <!-- profile -->
       <ul class="profile-wrapper" id="menu-on-phone">
@@ -73,15 +82,12 @@
             <li>
               <div class="profile-settings" id="prof-settings">
                 <div class="user-name color-btn">
-                  <% if(userId) { %> 
-                  <h3>user name</h3>
-                  <p>ID : # <%= userId %></p>
-                  <% } %> 
+                  <h3><%= userId.name %> </h3>
                 </div>
                 <ul class="profile-list">
 
                   <li>
-                    <a href="user/profile">Profile</a>
+                    <a href="profile">Profile</a>
                   </li>
 
                   <li>
@@ -101,7 +107,7 @@
           </ul>
         </li>
       </ul>
-
+      <% } %>
     </nav>
   </section>
 
@@ -109,7 +115,8 @@
   <section id="search-bar-mobile">
     <div class="search-for-mobile">
       <form class="search-form">
-        <input class="search-input" type="search" name="q" aria-label="Search through site content" placeholder="Search">
+        <input class="search-input" type="search" name="q" aria-label="Search through site content"
+          placeholder="Search">
         <button class="search-btn"><i class="fas fa-search search-icon"></i></button>
       </form>
     </div>
@@ -123,10 +130,16 @@
         <li class="filter">
           <a href="#">Filter</a>
         </li>
+
+        <% if(userId ===null ) { %>
+
         <li class="wrapper-login-phones">
           <a class="nav-login-phone" href="/user/login">Login</a>
           <a class="nav-signup-phone" href="/user/signup">Sign up</a>
         </li>
+
+        <% } %>
+
       </ul>
 
       <ul class="cartigory-wrapper">

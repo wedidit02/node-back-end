@@ -1,19 +1,18 @@
 const localStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt');
 
-const pool = require('../src/databases/database');
+const {validateUser, findUserByIde} = require('../src/databases/querys');
 
 
 function initpassport(passport) {
 
     const authenticateUser = async (email, password, done) => {
 
-        const sqlQuery = 'SELECT * FROM users WHERE email=? OR user_name=?'
-        const rows= await pool.query(sqlQuery, [email, email]);
-        const user = rows[0];
+        const verifyUser = await validateUser(email, email);
+        
+        const user = verifyUser[0];
     
         if (user == null) {
-            //console.log(err)
             return done(null, false, {
                 message: 'no user found on this email or user name'
             })
@@ -37,15 +36,15 @@ function initpassport(passport) {
     }, authenticateUser));
 
     passport.serializeUser((user, done) => {
-      return  done(null, user.id)
+      return  done(null, user._id)
     });
 
-    passport.deserializeUser(async (id, done) => {
+    passport.deserializeUser(async (_id, done) => {
+        
         try {
 
-            const sqlQuery = 'SELECT * FROM users WHERE id=?'
-            const userId = await pool.query(sqlQuery, [id])
-            return done(null, userId[0].id)
+            const userId = await findUserByIde(_id);
+            return done(null, userId);
 
         } catch (err) {
             done(err)
@@ -53,7 +52,24 @@ function initpassport(passport) {
     });
 }
 
-module.exports = initpassport;
+function checkAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+      return next()
+    }
+  
+    res.redirect('/')
+  }
+  
+  function checkNotAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+  
+      return res.redirect('/user')
+    }
+    next()
+  }
+  
+
+module.exports = {initpassport, checkAuthenticated, checkNotAuthenticated};
 
 
 
