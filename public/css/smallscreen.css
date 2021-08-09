@@ -209,7 +209,8 @@ ul {
 .profile-img {
   border-radius: 50%;
   margin: auto 0;
-  width: 50px;
+  width: 60px;
+  height: 60px;
 }
 
 .profile-settings {
