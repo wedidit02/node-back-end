@@ -8,9 +8,11 @@
 .d-flex {
   display: flex
 }
-.shopping-cart{
+
+.shopping-cart {
   margin-left: auto;
 }
+
 .prof-pg {
   margin: 2rem 0;
 }
@@ -22,20 +24,43 @@
 }
 
 .prof {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   margin: 2rem 0 0 0;
   z-index: 0;
+
+}
+.img-wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.prof-img {
+  width: 10rem;
+  height: 10rem;
+  border: 5px solid white;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 50%;
+  margin-bottom: 1.5rem;
+
 }
 
-.prof-img {
-  width: 5rem;
-  border-radius: 50%;
+.img-wrapper input[type='file']{
+  border: none !important;
+  
+
+}
+.upload-prof-img{
+  border: none !important;
+  
 }
 
 .user-ID {
-  margin-top: 1rem;
+  margin: 1.5rem 0;
 }
 
 .prof-form {
@@ -63,7 +88,7 @@
   height: 2rem;
   padding: 0 0.5rem;
   outline: none;
-  */
+
 }
 
 .edit-icon {
@@ -77,7 +102,8 @@
 .box-un:focus {
   border: 0.1rem #053742 solid;
 }
-.save-btn{
+
+.save-btn {
   margin: 2rem 50%;
   cursor: pointer;
   font-size: 1rem;
@@ -88,11 +114,13 @@
   text-align: center;
 }
 
-.prof-fp a, .save-btn {
+.prof-fp a,
+.save-btn {
   color: var(--primary-color);
 }
 
-.prof-fp a:hover, .save-btn:hover {
+.prof-fp a:hover,
+.save-btn:hover {
   text-decoration: underline;
 }
 

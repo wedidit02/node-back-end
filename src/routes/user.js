@@ -1,20 +1,16 @@
 const express = require("express");
 const router = express.Router();
 const passport = require('passport');
-const flash = require('express-flash');
-const bodyParser = require("body-parser");
-const methodOverride = require('method-override');
 
-const { findUser, createNewUser } = require('../databases/querys');
+
+const { findUser, createNewUser, updateProfile } = require('../databases/querys');
 const { checkAuthenticated, checkNotAuthenticated } = require('../../auth/passport-config');
 
 //const { route } = require(".");
 
-router.use(express.static("public"))
-router.use(express.urlencoded({ extended: false }));
-//router.use(bodyParser.urlencoded({ extended: true }));
-router.use(flash());
-router.use(methodOverride('_method'));
+router.use(express.static("public"));
+router.use(express.static("usersProfileImage"));
+
 
 
 router.get('', checkAuthenticated, (req, res) => {
@@ -43,6 +39,18 @@ router.post("/login", checkNotAuthenticated, passport.authenticate('local-login'
   failureFlash: true
 }));
 
+
+router.post('/profile', checkAuthenticated, async (req, res) => {
+  //console.log(req.files, req.user, req.body)
+
+  updateProfile(req, (profileUpdate) => {
+    
+    res.redirect("profile");
+  });
+
+});
+
+
 router.get('/logout', checkAuthenticated, (req, res) => {
   req.logOut()
   res.redirect('/');
@@ -52,7 +60,7 @@ router.get('/logout', checkAuthenticated, (req, res) => {
 router.post("/signup", checkNotAuthenticated, async (req, res) => {
 
   const verifyUserExist = await findUser(req.body);
-  
+
   if (verifyUserExist !== null) {
     res.render('register', { inform: 'you alredy have an account try to log in' })
     return;

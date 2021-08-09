@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 const {validateUser, findUserByIde} = require('../src/databases/querys');
 
 
-function initpassport(passport) {
+function initPassport(passport) {
 
     const authenticateUser = async (email, password, done) => {
 
@@ -69,7 +69,7 @@ function checkAuthenticated(req, res, next) {
   }
   
 
-module.exports = {initpassport, checkAuthenticated, checkNotAuthenticated};
+module.exports = {initPassport, checkAuthenticated, checkNotAuthenticated};
 
 
 

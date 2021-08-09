@@ -7,12 +7,26 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const passport = require('passport');
 const MongoStore = require('connect-mongo');
+const flash = require('express-flash');
+const fileUploade = require('express-fileupload');
 require("dotenv").config();
-const {initpassport, checkNotAuthenticated} = require('../auth/passport-config');
+const { initPassport, checkNotAuthenticated } = require('../auth/passport-config');
 
-initpassport(passport);
+initPassport(passport);
 
 const port = process.env.PORT || 5500;
+
+app.use(express.static("public"));
+app.use(express.static("usersProfileImage"));
+
+
+
+app.set('views', __dirname + '/views');
+app.set('view engine', 'ejs');
+app.use(flash());
+app.use(methodOverride('_method'));
+app.use(express.static("public"));
+app.use(fileUploade());
 
 mongoose.connect(process.env.MONGO, {
   useNewUrlParser: true,
@@ -30,8 +44,10 @@ app.use(session({
   secret: process.env.SECRET,
   resave: false,
   saveUninitialized: false,
-  store: new MongoStore({ mongoUrl: mongoose.connection._connectionString
-  })
+  store: new MongoStore({
+    mongoUrl: mongoose.connection._connectionString,
+    ttl: 2*60
+  }),
 
   //cookie:({ maxAge: 2 * 60})
 }))
@@ -39,17 +55,16 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+//router.use(express.urlencoded({ extended: false }));
+//router.use(bodyParser.urlencoded({ extended: true }));
+
+
 //IMPORTING ROUTER MUDOLE
 const userRouter = require("./routes/user");
 const guestRouter = require('./routes/guest');
 // const indexRouter = require("./routes/index");
 
-
-
-app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
 //static folder
-app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
 //USING BODYPAERSER
 app.use(bodyParser.json());
@@ -66,6 +81,8 @@ app.use("/", checkNotAuthenticated, guestRouter);
 
 //SERVER IS LISTENING
 app.listen(port, () => {
-
   console.log(`server is runing on ${port}`)
 });
+
+
+

@@ -18,6 +18,10 @@ const usersSchema = mongoose.Schema({
         type: String,
         require: true
     },
+    profileimage:{
+        type: String,
+        allowNull: true
+    }
 },
     {
         timestamps: true
