@@ -52,7 +52,7 @@ async function updateProfile(req, next) {
         if (req.files !== null) {
             const profileImage = req.files.profileimage;
             const imageName = _id + profileImage.name;
-            const uploadProfileImagePath = path.normalize(__dirname + '../../../usersProfileImage/' + imageName);
+            const uploadProfileImagePath = path.normalize(__dirname + '../../usersProfileImage/' + imageName);
 
             profileImage.mv(uploadProfileImagePath, (async (err) => {
                 if (err) {
