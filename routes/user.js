@@ -4,7 +4,7 @@ const passport = require('passport');
 
 
 const { findUser, createNewUser, updateProfile } = require('../databases/querys');
-const { checkAuthenticated, checkNotAuthenticated } = require('../../auth/passport-config');
+const { checkAuthenticated, checkNotAuthenticated } = require('../auth/passport-config');
 
 //const { route } = require(".");
 
@@ -31,6 +31,15 @@ router.get("/login", checkNotAuthenticated, (req, res) => {
 router.get("/signup", checkNotAuthenticated, (req, res) => {
   res.render("register")
 });
+
+router.get("/sell-now", checkAuthenticated, (req, res) =>{
+  res.render('seller',{ userId: req.user } )
+})
+
+router.post("/sell-now", checkAuthenticated, (req, res) =>{
+  console.log(req.body)
+  res.render('seller',{ userId: req.user } )
+})
 
 //LOGING IN
 router.post("/login", checkNotAuthenticated, passport.authenticate('local-login', {
