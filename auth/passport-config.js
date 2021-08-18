@@ -1,7 +1,7 @@
 const localStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt');
 
-const {validateUser, findUserByIde} = require('../src/databases/querys');
+const {validateUser, findUserByIde} = require('../databases/querys');
 
 
 function initPassport(passport) {
