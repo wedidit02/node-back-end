@@ -1,57 +1,62 @@
 <%- include('./partials/header'); -%>
-    <link rel="stylesheet" href="css/sell.css">
-    <div class="container-sell">
-        <div class="title">
-            <h1>hello seller</h1>
-        </div>
-        <section>
-            <form class="form-wrapper" action="" method="post">
-                <div class="">
-                    <div class="product">
-                        <label for="product-name"><span>Product Name</span></label>
-                        <input id="product-name" name="productName" type="text" required autocomplete="off">
-                    </div>
-                    <div class="product">
-                        <label for="discreption">Discreption</label>
-                        <textarea name="discreption" id="discreption" cols="auto" rows="auto" minlength="20"
-                            maxlength="100" required></textarea>
-                    </div>
-                    <div class="product">
-                        <label for="cartigory">Cartigorys</label>
-                        <select name="cartigory" id="cartigory">
-                            <option value="games">Game</option>
-                            <option value="computers">Computer</option>
-                            <option value="fashing">Fashing</option>
-                            <option value="husing">Husing</option>
-                        </select>
-                    </div>
-                    <div class="product">
-                        <label for="brand"> Brand</label>
-                        <select name="brand" id="brand">
-                            <option value="samsung">Samsung</option>
-                            <option value="vivo">Vivo</option>
-                            <option value="moto">Motrola</option>
-                            <option value="xiaomi">Xiaomi</option>
-                        </select>
 
-                    </div>
-                    <div class="product">
-                        <label for="price">Price</label>
-                        <input type="number" name="price" id="price" min="0.00" step="0.00" required>
-                    </div>
-                    <div class="product">
-                        <input name="product_image" type="file" accept="image/*" multiple maxlength="3">
-                    </div>
-                    <div class="product">
-                        <button class="btn" type="submit">sell now</button>
-                    </div>
+<link rel="stylesheet" href="css/sell.css">
 
-                </div>
-
-
-            </form>
+<section class="container-sell">
+    <div class="title">
+        <h1>hello seller</h1>
     </div>
 
-    </section>
+    <form class="form-wrapper" action="" method="post">
+        <div class="">
+            <div class="wt-h mg-b product">
+                <label class="form-label" for="product-name"><span>Product Name:</span></label>
+                <input class="form-control wt-h" id="product-name" name="productName" type="text" required
+                    autocomplete="off">
+            </div>
+            <div class="wt-h mg-b product">
+                <label class="form-label" for="description">Description:</label>
+                <textarea class="description wt-h" name="description" id="description" cols="auto" rows="10"
+                    minlength="10" maxlength="250" required></textarea>
+            </div>
 
-    <%- include('./partials/footer'); %>
+            <div class="mg-b">
+                <div class="wt-h product">
+                    <label class="form-label" for="category">Category</label>
+                    <select class="form-select" name="category" id="category">
+                        <option value="select">Select</option>
+                        <option value="games">Game</option>
+                        <option value="computers">Computer</option>
+                        <option value="fashing">Fashing</option>
+                        <option value="husing">Husing</option>
+                    </select>
+                </div>
+                <div class="wt-h mg-b product">
+                    <label class="form-label" for="brand"> Brand</label>
+                    <select class="form-select" name="brand" id="brand">
+                        <option value="select">Select</option>
+                        <option value="samsung">Samsung</option>
+                        <option value="vivo">Vivo</option>
+                        <option value="moto">Motrola</option>
+                        <option value="xiaomi">Xiaomi</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="wt-h mg-b product">
+                <label class="form-label" for="price">Price:</label>
+                <input class="form-control wt-h" type="number" name="price" id="price" min="0.00" step="0.00" required>
+            </div>
+            <div class="wt-h mg-b product">
+                <input class="form-control" name="product_image" type="file" accept="image/*" multiple maxlength="3">
+            </div>
+            <div class="wt-h mg-b product">
+                <button class="btn wt-h" type="submit">sell now</button>
+            </div>
+
+        </div>
+    </form>
+</section>
+
+
+<%- include('./partials/footer'); %>

@@ -46,17 +46,6 @@
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
   border-radius: 50%;
   margin-bottom: 1.5rem;
-
-}
-
-.img-wrapper input[type='file']{
-  border: none !important;
-  
-
-}
-.upload-prof-img{
-  border: none !important;
-  
 }
 
 .user-ID {
@@ -104,7 +93,7 @@
 }
 
 .save-btn {
-  margin: 2rem 50%;
+  text-align: center;
   cursor: pointer;
   font-size: 1rem;
 }
@@ -115,12 +104,11 @@
 }
 
 .prof-fp a,
-.save-btn {
+.save-btn button {
   color: var(--primary-color);
 }
 
-.prof-fp a:hover,
-.save-btn:hover {
+.prof-fp a:hover {
   text-decoration: underline;
 }
 
