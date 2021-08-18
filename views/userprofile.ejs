@@ -1,29 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- google fonts -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <!-- Fontsawesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <!-- local css -->
-  <link rel="stylesheet" media="screen and (min-width: 900px)" href="css/widescreen.css" />
-  <link rel="stylesheet" media="screen and (max-width: 899px)" href="css/smallscreen.css" />
-  <link rel="stylesheet" href="css/user-profile.css" />
-  <title>Profile</title>
-</head>
-
-<body>
+  <link rel="stylesheet" href="css/user-profile.css">
   <!-- navigation bar -->
   <section id="title">
-
     <nav class="navbar color-navbar">
-
       <!-- menu -->
       <div class="menu">
         <!-- hamburger menu icon -->
@@ -99,7 +78,7 @@
               <% }else{ %> 
               <img class="prof-img" src="logo/profile.jpeg " alt="profile imge">
                 <% } %> 
-            <input class="upload-prof-img" type="file" name="profileimage" accept="image/*" />
+            <input class="form-control" type="file" name="profileimage" accept="image/*" />
           </div>
         
           <div class="user-ID">
@@ -126,7 +105,9 @@
             <span class="fas fa-edit" for="email"></span>
           </div>
         </div>
-        <button class="btn save-btn" type="submit" name="button">Save</button>
+        <div class="save-btn">
+        <button class="btn wt-f " type="submit" name="button">Save</button>
+      </div>
       </form>
 
       <div class="prof-fp">
@@ -136,10 +117,5 @@
       <% } %>
 
     </main>
-    <footer class="color-navbar">
-      <span>i'm here</span>
-    </footer>
-    <script src="js/javaScript.js" charset="utf-8"></script>
-</body>
-
-</html>
+    <!--footer-->
+    <%- include('./partials/footer') %> 

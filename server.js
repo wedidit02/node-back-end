@@ -9,8 +9,9 @@ const passport = require('passport');
 const MongoStore = require('connect-mongo');
 const flash = require('express-flash');
 const fileUploade = require('express-fileupload');
+const expressLayout = require('express-ejs-layouts');
 require("dotenv").config();
-const { initPassport, checkNotAuthenticated } = require('../auth/passport-config');
+const { initPassport, checkNotAuthenticated } = require('./auth/passport-config');
 
 initPassport(passport);
 
@@ -19,10 +20,10 @@ const port = process.env.PORT || 5500;
 app.use(express.static("public"));
 app.use(express.static("usersProfileImage"));
 
-
-
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
+app.use(expressLayout);
+app.set('layout', './layouts/layout')
 app.use(flash());
 app.use(methodOverride('_method'));
 app.use(express.static("public"));
@@ -46,7 +47,7 @@ app.use(session({
   saveUninitialized: false,
   store: new MongoStore({
     mongoUrl: mongoose.connection._connectionString,
-    ttl: 2*60
+    ttl: 10*60
   }),
 
   //cookie:({ maxAge: 2 * 60})
