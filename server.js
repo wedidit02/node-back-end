@@ -23,7 +23,9 @@ app.use(express.static("usersProfileImage"));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 app.use(expressLayout);
-app.set('layout', './layouts/layout')
+app.set('layout', './layouts/layout');
+app.set('layout extractScripts', true);
+app.set('layout extractStyles', true);
 app.use(flash());
 app.use(methodOverride('_method'));
 app.use(express.static("public"));
