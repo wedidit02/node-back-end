@@ -164,6 +164,14 @@ button:focus:not(:focus-visible) {
     appearance: none;
 }
 
+.form-select:disabled{
+    color:#ced4da;
+}
+
+.display-none{
+    display: none;
+}
+
 .form-label {
     display: inline-block;
     margin-bottom: 0.5rem;

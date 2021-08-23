@@ -21,10 +21,12 @@ closeIcon.addEventListener("click", () =>{
 
 // function for menu on mobile Phones
 function menuToggler() {
-  userMenuPhone.classList.toggle("toggle-user-menu");
+  userMenuPhone.classList.toggle("toggle-user-menu")
   closeIcon.classList.toggle("close-icon-show")
   hamburgerMenu.classList.toggle("hamburger-hidden")
 };
+
+
 
 // // Cartigory menu
 // const menu = document.querySelector('.cartigory-list-menu button');
