@@ -22,11 +22,9 @@ const usersSchema = new Schema({
     profilePhoto: {
         imageType: {
             type: String,
-            required: true
         },
         imageBase: {
             type: String,
-            required: true
         }
     },
     isSeller: {
