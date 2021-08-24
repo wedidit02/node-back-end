@@ -19,9 +19,19 @@ const usersSchema = new Schema({
         type: String,
         require: true
     },
-    profileimage: {
-        type: String,
-        allowNull: true
+    profilePhoto: {
+        imageType: {
+            type: String,
+            required: true
+        },
+        imageBase: {
+            type: String,
+            required: true
+        }
+    },
+    seller: {
+        type: Boolean,
+        default: false
     }
 }, {
     timestamps: true
