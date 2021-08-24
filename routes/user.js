@@ -37,7 +37,7 @@ router.get("/sell-now", checkAuthenticated, (req, res) =>{
 })
 
 router.post("/sell-now", checkAuthenticated, (req, res) =>{
-  console.log(req.body)
+  console.log(req.body, req.files)
   res.render('seller',{ userId: req.user } )
 })
 

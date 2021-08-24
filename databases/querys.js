@@ -1,5 +1,5 @@
 const bcrypt = require('bcrypt');
-const User = require('./schema');
+const {User} = require('./schema');
 const path = require('path');
 
 function findUser(userInfo) {
