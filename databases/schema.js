@@ -29,7 +29,7 @@ const usersSchema = new Schema({
             required: true
         }
     },
-    seller: {
+    isSeller: {
         type: Boolean,
         default: false
     }
@@ -62,16 +62,18 @@ const productSchema = new Schema({
     price: {
         type: String
     },
-    productImage: [{
-        imageType: {
-            type: String,
-            required: true
-        },
-        imageBase: {
-            type: String,
-            required: true
+    productImage: [
+        {
+            imageType: {
+                type: String,
+                required: true
+            },
+            imageBase: {
+                type: String,
+                required: true
+            }
         }
-    }],
+    ],
     seller: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "user"
