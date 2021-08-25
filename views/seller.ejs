@@ -7,11 +7,11 @@
         <h1>hello seller</h1>
     </div>
 
-    <form class="form-wrapper" action="" method="post" enctype="multipart/form-data">
+    <form class="form-wrapper" action="/user/seller/sell-now" method="post" enctype="multipart/form-data">
         <div class="">
             <div class="wt-h mg-b product">
-                <label class="form-label" for="product-name"><span>Product Name:</span></label>
-                <input class="form-control wt-h" id="product-name" name="productName" type="text" required
+                <label class="form-label" for="title"><span>Tittle:</span></label>
+                <input class="form-control wt-h" id="title" name="tittle" type="text" required
                     autocomplete="off">
             </div>
             <div class="wt-h mg-b product">
@@ -53,7 +53,7 @@
                 <input class="form-control wt-h" type="number" name="price" id="price" min="0.00" step="0.00" required>
             </div>
             <div class="wt-h mg-b product">
-                <input class="form-control" name="product_image" type="file" accept="image/*" multiple maxlength="3"
+                <input class="form-control" name="product-image" type="file" accept="image/*" multiple maxlength="3"
                     required>
             </div>
             <div class="wt-h mg-b product">

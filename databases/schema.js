@@ -36,7 +36,7 @@ const usersSchema = new Schema({
 });
 
 const productSchema = new Schema({
-    title: {
+    tittle: {
         type: String,
         require: true
     },
@@ -57,10 +57,13 @@ const productSchema = new Schema({
     condition: {
         type: String
     },
+    house: {
+        type: String
+    },
     price: {
         type: String
     },
-    productImage: [
+    productImages: [
         {
             imageType: {
                 type: String,
@@ -73,7 +76,7 @@ const productSchema = new Schema({
         }
     ],
     seller: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: "user"
     }
 }, {
@@ -81,9 +84,9 @@ const productSchema = new Schema({
 });
 
 const User = mongoose.model("user", usersSchema);
-const postProduct = mongoose.model("product", productSchema);
+const Product = mongoose.model("product", productSchema);
 
 module.exports = {
     User,
-    postProduct
+    Product
 }
