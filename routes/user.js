@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const passport = require('passport');
+const imageUploader = require('../multer/multer');
 
 
 const { findUser, createNewUser, updateProfile } = require('../databases/querys');
@@ -11,53 +12,42 @@ const { checkAuthenticated, checkNotAuthenticated } = require('../auth/passport-
 router.use(express.static("public"));
 router.use(express.static("usersProfileImage"));
 
-
-
 router.get('', checkAuthenticated, (req, res) => {
   res.render("index", { userId: req.user });
 });
 
 //RENDING USER PROFILE PAGE
-router.get('/profile', checkAuthenticated, (req, res) => {
-  res.render("userprofile", { userId: req.user });
-});
+router.route("/profile")
+  .get(checkAuthenticated, (req, res) => {
+    res.render("userprofile", { userId: req.user });
+  })
+  .post(checkAuthenticated, imageUploader.single("profileimage"), async (req, res) => {
+    //console.log(req.files, req.user, req.body)
+    updateProfile(req, () => {
+      res.redirect("profile");
+    });
+  });
 
 //RENDING LOG IN PAGE
-router.get("/login", checkNotAuthenticated, (req, res) => {
-  res.render("login")
-});
+router.route("/login")
+  .get(checkNotAuthenticated, (req, res) => {
+    res.render("login");
+  })
+  //LOGING IN
+  .post(checkNotAuthenticated, passport.authenticate('local-login', {
+    successRedirect: '/user',
+    failureRedirect: '/user/login',
+    failureFlash: true
+  }));
+
 
 //RENDING REGISTER PAGE
 router.get("/signup", checkNotAuthenticated, (req, res) => {
   res.render("register")
 });
 
-router.get("/sell-now", checkAuthenticated, (req, res) =>{
-  res.render('seller',{ userId: req.user } )
-})
-
-router.post("/sell-now", checkAuthenticated, (req, res) =>{
-  console.log(req.body)
-  res.render('seller',{ userId: req.user } )
-})
-
-//LOGING IN
-router.post("/login", checkNotAuthenticated, passport.authenticate('local-login', {
-  successRedirect: '/user',
-  failureRedirect: '/user/login',
-  failureFlash: true
-}));
 
 
-router.post('/profile', checkAuthenticated, async (req, res) => {
-  //console.log(req.files, req.user, req.body)
-
-  updateProfile(req, (profileUpdate) => {
-    
-    res.redirect("profile");
-  });
-
-});
 
 
 router.get('/logout', checkAuthenticated, (req, res) => {
