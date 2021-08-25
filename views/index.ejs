@@ -100,89 +100,20 @@
 <!-- product cards -->
 <section id="product-cards">
   <div class="cards-container">
+    <% if(products.length !== 0) {%>
+    <% products.forEach((product)=>{ %>
     <a class="cards-item" href="#">
       <div class="img-container">
-        <img class="product-img" src="./cartigory/home-appliances.jpeg" alt="home-appliances">
+        <img class="product-img"
+          src="data:<%=product.productImages[0].imageType%>;base64,<%=product.productImages[0].imageBase%> "
+          alt="product image">
       </div>
       <div class="cards-details">
-        <h3 class="product-name">Home-appliances</h3>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+        <h3 class="product-name"><%=product.tittle%></h3>
+        <p><%=product.description%></p>
       </div>
     </a>
-    <a class="cards-item" href="#">
-      <div class="img-container">
-        <img class="product-img" src="./cartigory/home-appliances.jpeg" alt="home-appliances">
-      </div>
-      <div class="cards-details">
-        <h3 class="product-name">Home-appliances</h3>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-      </div>
-    </a>
-    <a class="cards-item" href="#">
-      <div class="img-container">
-        <img class="product-img" src="./cartigory/home-appliances.jpeg" alt="home-appliances">
-      </div>
-      <div class="cards-details">
-        <h3 class="product-name">Home-appliances</h3>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-      </div>
-    </a>
-    <a class="cards-item" href="#">
-      <div class="img-container">
-        <img class="product-img" src="./cartigory/home-appliances.jpeg" alt="home-appliances">
-      </div>
-      <div class="cards-details">
-        <h3 class="product-name">Home-appliances</h3>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-      </div>
-    </a>
-    <a class="cards-item" href="#">
-      <div class="img-container">
-        <img class="product-img" src="./cartigory/home-appliances.jpeg" alt="home-appliances">
-      </div>
-      <div class="cards-details">
-        <h3 class="product-name">Home-appliances</h3>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-      </div>
-    </a>
-    <a class="cards-item" href="#">
-      <div class="img-container">
-        <img class="product-img" src="./cartigory/home-appliances.jpeg" alt="home-appliances">
-      </div>
-      <div class="cards-details">
-        <h3 class="product-name">Home-appliances</h3>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-      </div>
-    </a>
-    <a class="cards-item" href="#">
-      <div class="img-container">
-        <img class="product-img" src="./cartigory/home-appliances.jpeg" alt="home-appliances">
-      </div>
-      <div class="cards-details">
-        <h3 class="product-name">Home-appliances</h3>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-      </div>
-    </a>
-    <a class="cards-item" href="#">
-
-      <div class="img-container">
-        <img class="product-img" src="./cartigory/home-appliances.jpeg" alt="home-appliances">
-      </div>
-      <div class="cards-details">
-        <h3 class="product-name">Home-appliances</h3>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-      </div>
-    </a>
-    <a class="cards-item" href="#">
-      <div class="img-container">
-        <img class="product-img" src="./cartigory/home-appliances.jpeg" alt="home-appliances">
-      </div>
-      <div class="cards-details">
-        <h3 class="product-name">Home-appliances</h3>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-      </div>
-    </a>
+    <% })} %>
   </div>
-</section>
 
- <%- include('./partials/footer'); %>
+  <%- include('./partials/footer'); %>

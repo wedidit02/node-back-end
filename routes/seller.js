@@ -22,7 +22,6 @@ router.route("/sell-now")
   .post(checkAuthenticated, imageUploader.array("product-image"), async (req, res) => {
     //console.log(req.body, req.files);
     postProduct(req, (doc) => {
-      console.log(doc)
       res.redirect('sell-now');
     });
   })
