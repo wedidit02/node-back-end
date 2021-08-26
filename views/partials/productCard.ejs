@@ -1,0 +1,25 @@
+<!-- product cards -->
+<section id="product-cards">
+    <div class="cards-container">
+        <% if(products.length !== 0) {%>
+        <% products.forEach((product)=>{ %>
+        <a class="cards-item" href="#">
+            <div class="img-container">
+                <img class="product-img"
+                    src="data:<%=product.productImages[0].imageType%>;base64,<%=product.productImages[0].imageBase%>"
+                    alt="product image">
+            </div>
+            <div class="cards-details">
+                <div class="product-name">
+                    <h3 class=""><%=product.tittle%></h3>
+                </div>
+                <div class="">
+                    <span><%=product.description.substr(0, 30)%> ...</span>
+                </div>
+                <div class="">
+                    <span><strong>Price $</strong><%=product.price%> </span>
+                </div>
+            </div>
+        </a>
+        <% })} %>
+    </div>

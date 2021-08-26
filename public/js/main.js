@@ -7,10 +7,10 @@ const profileSettings = document.querySelector("#prof-settings");
 const closeIcon = document.querySelector("#close-menu-icon");
 
 // toggler for user profile on widescreen
+try{
 userProfileMenu.addEventListener("click", () => {
   profileSettings.classList.toggle("toggle-user-menu")
 });
-
 // toggle for user on Phones
 hamburgerMenu.addEventListener("click", () =>{
   menuToggler();
@@ -18,6 +18,7 @@ hamburgerMenu.addEventListener("click", () =>{
 closeIcon.addEventListener("click", () =>{
   menuToggler();
 });
+}catch{}
 
 // function for menu on mobile Phones
 function menuToggler() {

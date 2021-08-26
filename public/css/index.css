@@ -4,17 +4,29 @@
     --btn-color: #053742;
 }
 
+body {
+    background-color: #F3F1F5;
+}
+
 .cards-container {
-    display: flex;
+    display: grid;
 }
 
 .cards-item {
     border-radius: 0.3rem;
+    background-color: #fff;
+}
+
+.img-container {
+    width: 12rem;
+    height: 10rem;
+    overflow: hidden;
 }
 
 .product-img {
-    border-radius: 0.3rem;
     width: 100%;
+    height: auto;
+    object-fit: fit;
 }
 
 .cards-details {
@@ -26,15 +38,11 @@
     padding-bottom: 0.5rem;
 }
 
-@media screen and (max-width:899px) {
-    .cartigory-wrapper {
-        display: none;
-    }
+@media screen and (max-width:850px) {
 
     /* product cards */
     .cards-container {
-        flex-direction: column;
-        justify-content: center;
+        grid-template-columns: auto;
         align-items: center;
         width: 100%;
         margin: 2.5rem 0 2rem 0;
@@ -45,123 +53,96 @@
         display: flex;
         margin: 0 0 1rem 0;
         width: 100%;
+        height: 10rem;
     }
 
     .img-container {
-        border-radius: 0.3rem;
-        float: left;
-        width: 45%;
-        margin: 0.5rem 0 0.5rem 0.5rem;
+        border-radius: 0.3rem 0 0 0.3rem;
+        margin-left: 0.25rem;
+        height: 100%
     }
 
     .cards-details {
-        width: 55%;
+        width: 60%;
         padding: 0.5rem 0.7rem;
     }
 
     @media screen and (min-width:520px) {
 
         .cards-container {
-            display: grid;
-            grid-template-columns: auto auto auto;
-            grid-gap: 0 1rem;
-            padding: 0 0.5rem;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 1rem;
+            padding: 1rem
         }
 
         .cards-item {
-            display: block;
+            overflow: hidden;
+            flex-direction: column;
             text-align: justify;
+            height: 20rem;
         }
 
-        .img-container,
+        .img-container {
+            border-radius: 0;
+            margin-left: 0;
+            width: 100%;
+            height: 10rem;
+        }
+
         .cards-details {
-            float: none;
-            width: calc(100% - 1rem);
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    @media screen and (min-width: 600px) {
+        .cards-container {
+            grid-template-columns: auto auto auto;
         }
     }
 }
 
-@media screen and (min-width: 900px) {
-
-    .cartigory-wrapper {
-        display: flex;
-        width: 100%;
-        position: relative;
-        z-index: 2;
-    }
-
-    .cartigory-items {
-        border: none;
-        cursor: pointer;
-        position: relative;
-        width: 100%;
-    }
-
-    .cartigory-name {
-        font-size: 1rem;
-        padding: 0.5rem;
-        width: 100%;
-    }
-
-    .cartigory-items:hover {
-        border-radius: 0.3rem 0.3rem 0 0;
-        background-color: #053742;
-        color: #fff;
-    }
-
-    .cartigory-name:hover+.item-list {
-        display: block;
-    }
-
-    .item-list {
-        background-color: #fff;
-        border-radius: 0 0 0.3rem 0.3rem;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        overflow: hidden;
-        text-align: center;
-        display: none;
-        width: 100%;
-        position: absolute;
-    }
-
-    .item-list li {
-        padding: 0.5rem 0;
-    }
-
-    .item-list li:hover {
-        background-color: #A2DBFA;
-    }
-
-    .item-list li a {
-        color: #000;
-        width: 100%;
-    }
-
-    .item-list:hover {
-        display: block;
-    }
+@media screen and (min-width: 851px) {
 
     /* product cards */
     .cards-container {
-        flex-wrap: wrap;
-        justify-content: space-between;
+        grid-template-columns: auto auto auto auto auto;
+        grid-gap: 1rem;
         padding: 2.5rem 2rem 0.5rem 2rem;
-        position: relative;
     }
 
     .cards-item {
         margin: 0.2rem;
-        width: 12rem;
-        height: 15rem;
-        padding: 0.5rem;
+        width: 100%;
+        /*height: 15rem;*/
     }
 
     .cards-item:hover {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
 
-    .cards-details {
-        padding: 0.5rem 0;
+    .img-container {
+        width: 100%;
+        height: 12rem;
+        overflow: hidden;
     }
-}
 
+    .product-img {
+        border-radius: 0.3rem;
+        width: 100%;
+        height: auto;
+        object-fit: fit;
+    }
+
+    .cards-details {
+        padding: 0.5rem;
+    }
+
+    @media screen and (max-width: 1170px) {
+        .cards-container {
+            grid-template-columns: auto auto auto auto;
+        }
+    }
+
+
+}

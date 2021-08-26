@@ -1,9 +1,6 @@
 const bcrypt = require('bcrypt');
 const { User, Product } = require('./schema');
 const fs = require('fs');
-const mongoose = require("mongoose");
-const toId = mongoose.Types.ObjectID;
-const path = require('path');
 
 async function findUser(userInfo) {
     const email = userInfo.email;
@@ -22,7 +19,7 @@ async function validateUser(email, username) {
             return err;
         }
         return doc;
-    })
+    });
     return verifyUser;
 }
 
@@ -146,11 +143,21 @@ async function postProduct(req, next) {
     });
 }
 
+async function findAllProducts(next){
+    await Product.find((err, doc)=>{
+        if(err){
+            return next(err);
+        }
+        return next(doc);
+    });
+}
+
 module.exports = {
     updateProfile,
     findUser,
     findUserByIde,
     validateUser,
     createNewUser,
-    postProduct
+    postProduct,
+    findAllProducts
 }
