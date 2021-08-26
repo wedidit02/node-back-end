@@ -3,7 +3,6 @@ const router = express.Router();
 const passport = require('passport');
 const imageUploader = require('../multer/multer');
 
-
 const { findUser, createNewUser, updateProfile, findAllProducts } = require('../databases/querys');
 const { checkAuthenticated, checkNotAuthenticated } = require('../auth/passport-config');
 
@@ -12,7 +11,6 @@ router.use(express.static("usersProfileImage"));
 
 router.get('', checkAuthenticated, async (req, res) => {
   await findAllProducts((allProducts) => {
-    console.log(allProducts)
     res.render("index", { userId: req.user, products: allProducts });
   });
 });
@@ -42,31 +40,29 @@ router.route("/login")
   }));
 
 //RENDING REGISTER PAGE
-router.get("/signup", checkNotAuthenticated, (req, res) => {
-  res.render("register")
-});
+router.route("/signup")
+  .get(checkNotAuthenticated, (req, res) => {
+    res.render("register")
+  })
+  //REGISTER FOR AN ACCOUNT
+  .post(checkNotAuthenticated, async (req, res) => {
+    const verifyUserExist = await findUser(req.body);
+    if (verifyUserExist !== null) {
+      res.render('register', { inform: 'you alredy have an account try to log in' })
+      return;
+    }
+    try {
+      await createNewUser(req.body);
+      res.redirect('login');
+    } catch (err) {
+      console.log(err)
+    }
+  });
 
 router.get('/logout', checkAuthenticated, (req, res) => {
   req.logOut()
   res.redirect('/');
 })
-
-//REGISTER FOR AN ACCOUNT
-router.post("/signup", checkNotAuthenticated, async (req, res) => {
-
-  const verifyUserExist = await findUser(req.body);
-
-  if (verifyUserExist !== null) {
-    res.render('register', { inform: 'you alredy have an account try to log in' })
-    return;
-  }
-  try {
-    await createNewUser(req.body);
-    res.redirect('login');
-  } catch (err) {
-    console.log(err)
-  }
-});
 
 
 //EXPORTING Router MODULE

@@ -1,7 +1,6 @@
 const bcrypt = require('bcrypt');
 const { User, Product } = require('./schema');
 const fs = require('fs');
-const mongoose = require("mongoose");
 
 async function findUser(userInfo) {
     const email = userInfo.email;
@@ -20,7 +19,7 @@ async function validateUser(email, username) {
             return err;
         }
         return doc;
-    })
+    });
     return verifyUser;
 }
 
@@ -150,8 +149,7 @@ async function findAllProducts(next){
             return next(err);
         }
         return next(doc);
-    })
-
+    });
 }
 
 module.exports = {
