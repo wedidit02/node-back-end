@@ -18,6 +18,7 @@ a {
 
 body {
     font-family: 'Ubuntu', sans-serif;
+    background-color: #F3F1F5;
 }
 
 h1,
@@ -47,7 +48,6 @@ button:focus:not(:focus-visible) {
 
 .btn-color {
     background: var(--btn-color);
-
 }
 
 /* class for all */
@@ -224,13 +224,18 @@ button:focus:not(:focus-visible) {
 .nav-signup:hover {
     text-decoration: underline;
 }
-
-.profile-img {
-    border-radius: 50%;
+.user-img-container{
+    width: 3rem;
+    height: 3rem;
     margin: auto 0;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius:50%;
 }
-
-
+.profile-img {
+    width: 100%;
+    height: auto;
+}
 
 .user-name {
     align-items: center;
@@ -365,12 +370,10 @@ button:focus:not(:focus-visible) {
         text-align: right;
         margin: 1rem 2rem;
     }
-
-    .profile-img {
-        width: 60px;
-        height: 60px;
+    .user-img-container{
+        margin-left: auto;
     }
-
+       
     .profile-settings {
         margin: 0 4.5rem 0 3rem;
     }
@@ -518,13 +521,11 @@ button:focus:not(:focus-visible) {
     }
 
     .user-img {
-        background-color: transparent;
-        border: none;
-    }
-
-    .profile-img {
+        border-radius: 50%;
         width: 50px;
         height: 50px;
+        background-color: transparent;
+        border: none;
     }
 
     .profile-settings {

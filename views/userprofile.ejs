@@ -1,58 +1,60 @@
-
-  <link rel="stylesheet" href="css/user-profile.css">
-  <%- include('partials/header') %> 
-    <% if(userId) { %>
-    <!--start of profile-->
-    <main class="prof-pg">
-      <!--profile name-->
-      <div class="prof-hd color-navbar">
-        <h1>Profile</h1>
-      </div>
-      <form action="profile" method="POST" encType="multipart/form-data">
-        <div class="prof">
-          <!--profile image-->
-          <div class="img-wrapper">
-            <% if( userId.profilePhoto.imageType !== undefined) {%> 
-              <img class="prof-img" src="data:<%= userId.profilePhoto.imageType%>;base64,<%=userId.profilePhoto.imageBase%>" alt="profile imge">
-              <% }else{ %> 
-              <img class="prof-img" src="logo/profile.jpeg " alt="profile imge">
-                <% } %> 
-            <input class="form-control" type="file" name="profileimage" accept="image/*" />
-          </div>
-        
-          <div class="user-ID">
-            <p><strong>ID : # </strong> <%= userId._id %></p>
-          </div>
+<link rel="stylesheet" href="css/user-profile.css">
+<%- include('partials/header') %>
+<% if(userId) { %>
+<!--start of profile-->
+<main class="prof-pg">
+  <!--profile name-->
+  <div class="prof-hd color-navbar">
+    <h1>Profile</h1>
+  </div>
+  <form action="profile" method="POST" encType="multipart/form-data">
+    <div class="prof">
+      <!--profile image-->
+      <div class="img-wrapper">
+        <% if( userId.profilePhoto.imageType !== undefined) {%>
+        <div class="prof-img-container">
+          <img class="prof-img" src="data:<%= userId.profilePhoto.imageType%>;base64,<%=userId.profilePhoto.imageBase%>"
+            alt="profile imge">
+          <% }else{ %>
+          <img class="prof-img" src="logo/profile.jpeg " alt="profile imge">
+          <% } %>
         </div>
-        <!--profile details-->
-        <div class="d-flex prof-form">
-
-          <div class="prof-name">
-            <label class="label" for="name">Name:</label>
-            <label class="label" for="username">Username:</label>
-            <label class="label" for="email">Email:</label>
-          </div>
-          <div class="prof-input">
-            <input name="name" id="name" class="box" type="text" value="<%= userId.name %>">
-            <input name="username" id="username" class="box" type="text" value="<%= userId.username %>">
-            <input name="email" id="email" class="box" type="email" value="<%= userId.email %>">
-          </div>
-          <div class="edit-icon">
-            <span class="fas fa-edit" for="name"></span>
-            <span class="fas fa-edit" for="username"></span>
-            <span class="fas fa-edit" for="email"></span>
-          </div>
+        <input class="form-control" type="file" name="profileimage" accept="image/*" />
+      </div>
+      <!--profile details-->
+      <div class="prof-input lay-grid">
+        <label class="form-lable" for="name">ID:</label>
+        <div class="user-ID">
+          <span>#<%= userId._id %></span>
         </div>
-        <div class="save-btn">
-        <button class="btn wt-f " type="submit" name="button">Save</button>
+        <label class="form-lable" for="name">Name:</label>
+        <div class="d-flex mg-b">
+          <input name="name" id="name" class="form-control wt-h box" type="text" value="<%= userId.name%>" disabled>
+          <span class="fas fa-edit edit-btn" for="name"></span>
+        </div>
+
+        <label class="form-lable" for="username">Username:</label>
+        <div class="d-flex mg-b">
+          <input name="username" id="username" class="form-control wt-h box" type="text" value="<%= userId.username%>"
+            disabled>
+          <span class="fas fa-edit edit-btn" for="username"></span>
+        </div>
+
+        <label class="form-lable" for="email">Email:</label>
+        <div class="d-flex mg-b">
+          <input name="email" id="email" class="form-control wt-h box" type="email" value="<%= userId.email%>" disabled>
+          <span id="email-edit" class="fas fa-edit edit-btn" for="email"></span>
+        </div>
+
       </div>
-      </form>
-
-      <div class="prof-fp">
-        <a href="forgot.html">Want To Change Your Password?</a>
+      <div class="save-btn wt-h">
+        <button class="btn wt-f" type="submit" name="button">Save</button>
       </div>
-
-      <% } %>
-
-    </main>
-    <%- include('./partials/footer') %> 
+  </form>
+  <div class="prof-fp">
+    <a href="forgot.html">Want To Change Your Password?</a>
+  </div>
+  <% } %>
+</main>
+<%- include('./partials/footer') %>
+<script defer src="js/profile.js"></script>
