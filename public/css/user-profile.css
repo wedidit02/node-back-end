@@ -106,6 +106,16 @@ label {
   color: var(--primary-color);
 }
 
+.disabled-edit-btn{
+  color: #ced4da;
+  cursor: default;
+  pointer-events: none;
+}
+.disabled-edit-btn:hover{
+  color: #ced4da;
+  border-color: #ced4da;
+  background-color:#fff;
+}
 .save-btn {
   text-align: center;
   cursor: pointer;

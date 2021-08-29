@@ -79,6 +79,14 @@ button:focus:not(:focus-visible) {
     background-color: var(--btn-color);
     color: #fff;
 }
+.btn:disabled{
+    color: #ced4da;
+    cursor: default;
+}
+.btn:disabled:hover{
+    border-color: #ced4da;
+    background-color:#fff;
+}
 
 .form-control {
     border: 1px solid #ced4da;

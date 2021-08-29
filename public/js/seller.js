@@ -7,7 +7,7 @@ category.addEventListener('click', function () {
 
     if (this.value === 'phone') {
         romoveDisplayNoneClass();
-        moreDetailes.innerHTML = '<div id="phone" class="wt-h mg-b product"><label class="form-label" for="brand"> Brand</label><select class="form-select" name="brand" id="brand"><option value="">Select</option><option value="samsung">Samsung</option><option value="vivo">Vivo</option><option value="moto">Motrola</option><option value="xiaomi">Xiaomi</option></select></div>'
+        moreDetailes.innerHTML = '<div id="phone" class="wt-h mg-b product"><label class="form-label" for="brand">Brand</label><select class="form-select" name="brand" id="brand"><option value="">Select</option><option value="samsung">Samsung</option><option value="vivo">Vivo</option><option value="moto">Motrola</option><option value="xiaomi">Xiaomi</option></select></div>'
     } else if (this.value === 'housing') {
         romoveDisplayNoneClass();
         moreDetailes.innerHTML = '<div id="phone" class="wt-h mg-b product"><label class="form-label" for="brand">House for Sale or Rent</label><select class="form-select" name="house" id="brand"><option value="">Select</option><option value="rent">Rent</option><option value="sale">For Sale</option></select></div>'

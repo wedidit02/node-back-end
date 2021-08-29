@@ -25,30 +25,30 @@
       <div class="prof-input lay-grid">
         <label class="form-lable" for="name">ID:</label>
         <div class="user-ID">
-          <span>#<%= userId._id %></span>
+          <span>#<%=userId._id%></span>
         </div>
         <label class="form-lable" for="name">Name:</label>
         <div class="d-flex mg-b">
-          <input name="name" id="name" class="form-control wt-h box" type="text" value="<%= userId.name%>" disabled>
-          <span class="fas fa-edit edit-btn" for="name"></span>
+          <input name="name" id="name" class="form-control wt-h box" type="text" value="<%= userId.name%>" disabled required>
+          <span id="name-edit-btn" class="fas fa-edit edit-btn" for="name"></span>
         </div>
 
         <label class="form-lable" for="username">Username:</label>
         <div class="d-flex mg-b">
           <input name="username" id="username" class="form-control wt-h box" type="text" value="<%= userId.username%>"
-            disabled>
-          <span class="fas fa-edit edit-btn" for="username"></span>
+            disabled required>
+          <span id="username-edit-btn" class="fas fa-edit edit-btn" for="username"></span>
         </div>
 
         <label class="form-lable" for="email">Email:</label>
         <div class="d-flex mg-b">
-          <input name="email" id="email" class="form-control wt-h box" type="email" value="<%= userId.email%>" disabled>
-          <span id="email-edit" class="fas fa-edit edit-btn" for="email"></span>
+          <input name="email" id="email" class="form-control wt-h box" type="email" value="<%= userId.email%>" disabled required>
+          <span id="email-edit-btn" class="fas fa-edit edit-btn" for="email"></span>
         </div>
 
       </div>
       <div class="save-btn wt-h">
-        <button class="btn wt-f" type="submit" name="button">Save</button>
+        <button id="save-btn" class="btn wt-f" type="submit" name="button" disabled>Save</button>
       </div>
   </form>
   <div class="prof-fp">
