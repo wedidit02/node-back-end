@@ -34,5 +34,4 @@ category.addEventListener('click', function () {
     try {
         document.querySelector("#brand").setAttribute("required", "required");
     } catch { }
-
 });
