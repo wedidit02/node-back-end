@@ -11,14 +11,14 @@ router.use(express.static("usersProfileImage"));
 
 router.get('', checkAuthenticated, async (req, res) => {
   await findAllProducts((allProducts) => {
-    res.render("index", { userId: req.user, products: allProducts });
+    res.render("index", { userId: req.user, products: allProducts, title: "Home" });
   });
 });
 
 //RENDING USER PROFILE PAGE
 router.route("/profile")
   .get(checkAuthenticated, (req, res) => {
-    res.render("userprofile", { userId: req.user });
+    res.render("userprofile", { userId: req.user, title: "Profile" });
   })
   .post(checkAuthenticated, imageUploader.single("profileimage"), async (req, res) => {
     //console.log(req.files, req.user, req.body)
@@ -30,7 +30,7 @@ router.route("/profile")
 //RENDING LOG IN PAGE
 router.route("/login")
   .get(checkNotAuthenticated, (req, res) => {
-    res.render("login");
+    res.render("login", { title: "Login" });
   })
   //LOGING IN
   .post(checkNotAuthenticated, passport.authenticate('local-login', {
@@ -42,13 +42,13 @@ router.route("/login")
 //RENDING REGISTER PAGE
 router.route("/signup")
   .get(checkNotAuthenticated, (req, res) => {
-    res.render("register")
+    res.render("register", { title: "Sign Up" })
   })
   //REGISTER FOR AN ACCOUNT
   .post(checkNotAuthenticated, async (req, res) => {
     const verifyUserExist = await findUser(req.body);
     if (verifyUserExist !== null) {
-      res.render('register', { inform: 'you alredy have an account try to log in' })
+      res.render('register', { inform: 'you alredy have an account try to log in', title: "Sign Up" })
       return;
     }
     try {

@@ -36,7 +36,7 @@ const usersSchema = new Schema({
 });
 
 const productSchema = new Schema({
-    tittle: {
+    title: {
         type: String,
         require: true
     },

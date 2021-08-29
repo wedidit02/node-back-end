@@ -98,7 +98,7 @@ async function postProduct(req, next) {
         return console.log("user not find");
     }
     const {
-        tittle,
+        title,
         description,
         category,
         brand,
@@ -124,7 +124,7 @@ async function postProduct(req, next) {
         return images;
     });
     const newProduct = new Product({
-        tittle: tittle,
+        title: title,
         description: description,
         category: category,
         brand: brand,

@@ -13,7 +13,7 @@ router.get("/", checkAuthenticated, (req, res) => {
 
 router.route("/sell-now")
   .get(checkAuthenticated, (req, res) => {
-    res.render("seller", { userId: req.user });
+    res.render("seller", { userId: req.user,  title:"Sell Now" });
   })
 
   .post(checkAuthenticated, imageUploader.array("product-image"), async (req, res) => {

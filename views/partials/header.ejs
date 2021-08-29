@@ -39,7 +39,7 @@
     <ul class="profile-wrapper" id="menu-on-phone">
       <li>
         <div class="user-profile" id="profile-menu">
-          <div class="user-img">
+          <div class="user-img-container">
             <% if(userId.profilePhoto.imageType !== undefined) {%>
             <img class="profile-img"
               src="data:<%= userId.profilePhoto.imageType%>;base64,<%=userId.profilePhoto.imageBase%>"

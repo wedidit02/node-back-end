@@ -5,7 +5,7 @@ const { findAllProducts } = require('../databases/querys');
 
 router.get("", async (req, res) => {
     await findAllProducts((allProducts) => {
-        res.render("index", { userId: null, products: allProducts });
+        res.render("index", { userId: null, products: allProducts, title:"Home" });
     });
 })
 
