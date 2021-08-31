@@ -1,28 +1,35 @@
 <%-include("./partials/header")-%>
 <link rel="stylesheet" href="css/product.css">
 <div class="container">
-    <div class="title-container">
-        <H1>hello product..</H1>
-    </div>
+
     <div class="product-wrapper">
-        <div class="product-images-container">
-            <div class="imag-wrapper">
-                imge hiiiiii!!!!
+        <div class="slider">
+
+            <div class="slides">
+                <% let createSlideId = 1%>
+                <% product.productImages.forEach( images => {-%>
+                <div id="slide-<%=createSlideId %>" class="imag-wrapper">
+                    <img src="data:<%=images.imageType%>;base64,<%=images.imageBase%>  " alt="product image">
+                </div>
+                <% createSlideId++%>
+                <% }); -%>
             </div>
+            <% let slideLinkCount = 1-%>
+            <% product.productImages.forEach( images => {-%>
+            <a class="btn" href="#slide-<%=slideLinkCount%>"><%=slideLinkCount%></a>
+            <%slideLinkCount++ -%>
+            <%});-%>
         </div>
-        <div class="product-description-container">
-            <div class="description-wrapper">
-                <div class="product-title mg-b">
-                    <h3><%= product.title %></h3>
-                </div>
-                <span class="mg-b price">Price: <strong>$<%=product.price%>.00</strong></span>
-                <div class="product-description mg-b">
-                    <p><%=product.description%> </p>
-                </div>
-                <div class="product-links">
-                    <a href="#" class="btn wt-f">Buy Now</a>
-                    <a href="#" class="btn wt-f">Add Cart</a>
-                </div>
+
+        <div class="description-wrapper">
+            <h3><%= product.title %></h3>
+            <span class="price">Price: <strong>$<%=product.price%>.00</strong></span>
+            <div class="product-description">
+                <p><%=product.description%> </p>
+            </div>
+            <div class="product-btn-links">
+                <a href="#" class="btn ">Buy Now</a>
+                <a href="#" class="btn ">Add Cart</a>
             </div>
         </div>
     </div>

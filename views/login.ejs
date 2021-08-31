@@ -1,80 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <link rel="stylesheet" href="css/login.css" />
-    <link rel="stylesheet" media="screen and (min-width: 900px)" href="css/widescreen.css" />
-    <link rel="stylesheet" media="screen and (max-width: 899px)" href="css/smallscreen.css" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <title>Reception</title>
-</head>
-
-<body>
-    <!-- navigation bar -->
-    <section id="title">
-        <nav class="navbar color-navbar">
-            <!-- site name -->
-            <a class="nav-brand" href="/">site name</a>
-            <!-- search -->
-            <!-- cart -->
-            <a class="shopping-cart" href="#">
-                <span class="fas fa-shopping-cart cart-icon"></span>
-            </a>
-
-        </nav>
-    </section>
-
-    <% if (messages.error) { %>
-    <h1><%= messages.error  %> </h1>
-    <% }%>
-
-    <div class="main-container">
-
-
-        <div class="container">
-            <div class="title1 color-navbar"><span>LOGIN</span></div>
-            <div class="wrapper">
-                <form action="/user/login" method="POST">
-                    <div class="row">
-                        <i class="fas fa-user"></i>
-                        <input type="text/email" name="email" placeholder="Email or Username" required>
-                    </div>
-                    <div class="row">
-                        <i class="fas fa-lock"></i>
-                        <input type="password" name="password" placeholder="Password" required autocomplete="off">
-                    </div>
-                    <div class="forgot-pass"><a href="forgot.html">Forgot password?</a></div>
-                    <div class="row button">
-                        <input type="submit" value="Login">
-                    </div>
-                    <section>
-                        <ul class="fg">
-                            <li class="facebook"><button><i class="fab fa-facebook-f"></i></button></li>
-                            <li class="google"><button><i class="fab fa-google"></i></button></li>
-                        </ul>
-                    </section>
-                </form>
-            </div>
-            <div class="signup-link">Not a member? <a href="signup">Create account</a></div>
+<%-include("./partials/header")-%> 
+<link rel="stylesheet" href="css/login.css">
+<% if (messages.error) { %>
+<h1><%= messages.error  %> </h1>
+<% }%>
+<div class="main-container">
+    <div class="container">
+        <div class="title1 color-navbar"><span>LOGIN</span></div>
+        <div class="wrapper">
+            <form action="/user/login" method="POST">
+                <div class="row">
+                    <i class="fas fa-user"></i>
+                    <input type="text/email" name="email" placeholder="Email or Username" required>
+                </div>
+                <div class="row">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" name="password" placeholder="Password" required autocomplete="off">
+                </div>
+                <div class="forgot-pass"><a href="forgot.html">Forgot password?</a></div>
+                <div class="row button">
+                    <input type="submit" value="Login">
+                </div>
+                <section>
+                    <ul class="fg">
+                        <li class="facebook"><button><i class="fab fa-facebook-f"></i></button></li>
+                        <li class="google"><button><i class="fab fa-google"></i></button></li>
+                    </ul>
+                </section>
+            </form>
         </div>
-        <div class="container-image">
-            <div class="col">
-                <img src="images/image2.png">
-            </div>
+        <div class="signup-link">Not a member? <a href="signup">Create account</a></div>
+    </div>
+    <div class="container-image">
+        <div class="col">
+            <img src="images/image2.png">
         </div>
     </div>
-
-    <footer class="color-navbar">
-        <span>i'm here</span>
-    </footer>
-</body>
-
-</html>
+</div>
+<%-include("./partials/footer")-%> 
