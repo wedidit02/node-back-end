@@ -67,11 +67,13 @@ app.use(passport.session());
 const userRouter = require("./routes/user");
 const guestRouter = require("./routes/guest");
 const sellerRouter = require("./routes/seller");
+const productRouter = require("./routes/post");
 
-
+app.use("/user/post", productRouter);
 app.use("/user/seller", sellerRouter);
 app.use("/user", userRouter);
-app.use("/", checkNotAuthenticated, guestRouter);
+app.use("/post", productRouter);
+app.use("/", guestRouter);
 
 
 //SERVER IS LISTENING

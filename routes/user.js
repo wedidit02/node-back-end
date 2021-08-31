@@ -30,7 +30,7 @@ router.route("/profile")
 //RENDING LOG IN PAGE
 router.route("/login")
   .get(checkNotAuthenticated, (req, res) => {
-    res.render("login", { title: "Login" });
+    res.render("login", { userId:null, title: "Login" });
   })
   //LOGING IN
   .post(checkNotAuthenticated, passport.authenticate('local-login', {

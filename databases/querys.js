@@ -152,6 +152,11 @@ async function findAllProducts(next){
     });
 }
 
+async function findProductByIde(_id, next) {
+    const product = await Product.findById({ _id });
+    return next(product);
+}
+
 module.exports = {
     updateProfile,
     findUser,
@@ -159,5 +164,6 @@ module.exports = {
     validateUser,
     createNewUser,
     postProduct,
-    findAllProducts
+    findAllProducts,
+    findProductByIde
 }

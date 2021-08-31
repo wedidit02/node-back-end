@@ -3,7 +3,11 @@
     <div class="cards-container">
         <% if(products.length !== 0) {%>
         <% products.forEach((product)=>{ %>
-        <a class="cards-item" href="#">
+        <%if(userId=== null){%>
+        <a class="cards-item" href="/post/<%=product._id%>">
+            <% } else { %>
+        <a class="cards-item" href="/user/post/<%=product._id%>">
+            <%}%>
             <div class="img-container">
                 <img class="product-img"
                     src="data:<%=product.productImages[0].imageType%>;base64,<%=product.productImages[0].imageBase%>"
@@ -11,7 +15,7 @@
             </div>
             <div class="cards-details">
                 <div class="product-name">
-                    <h3 class=""><%=product.tittle%></h3>
+                    <h3 class=""><%=product.title%></h3>
                 </div>
                 <div class="">
                     <span><%=product.description.substr(0, 30)%> ...</span>

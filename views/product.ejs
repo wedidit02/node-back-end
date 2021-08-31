@@ -1,0 +1,37 @@
+<%-include("./partials/header")-%>
+<link rel="stylesheet" href="css/product.css">
+<div class="container">
+
+    <div class="product-wrapper">
+        <div class="slider">
+
+            <div class="slides">
+                <% let createSlideId = 1%>
+                <% product.productImages.forEach( images => {-%>
+                <div id="slide-<%=createSlideId %>" class="imag-wrapper">
+                    <img src="data:<%=images.imageType%>;base64,<%=images.imageBase%>  " alt="product image">
+                </div>
+                <% createSlideId++%>
+                <% }); -%>
+            </div>
+            <% let slideLinkCount = 1-%>
+            <% product.productImages.forEach( images => {-%>
+            <a class="btn" href="#slide-<%=slideLinkCount%>"><%=slideLinkCount%></a>
+            <%slideLinkCount++ -%>
+            <%});-%>
+        </div>
+
+        <div class="description-wrapper">
+            <h3><%= product.title %></h3>
+            <span class="price">Price: <strong>$<%=product.price%>.00</strong></span>
+            <div class="product-description">
+                <p><%=product.description%> </p>
+            </div>
+            <div class="product-btn-links">
+                <a href="#" class="btn ">Buy Now</a>
+                <a href="#" class="btn ">Add Cart</a>
+            </div>
+        </div>
+    </div>
+</div>
+<%-include("./partials/footer")-%>
