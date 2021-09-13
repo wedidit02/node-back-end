@@ -368,11 +368,20 @@ button:focus:not(:focus-visible) {
         background-color: var(--primary-color);
         position: absolute;
         width: 100%;
-        height: 100vh;
+        padding-bottom: 5rem;
         top: 0;
         left: 0;
         transition: all 0.8s ease-out;
         transform: translateY(-850px);
+        z-index: 2;
+    }
+    .profile-wrapper::after {
+        content: "";
+        background-color: black;
+        border: black;
+        color: aqua;
+        position: absolute;
+        bottom: 0;
     }
 
     .user-profile {
@@ -382,21 +391,18 @@ button:focus:not(:focus-visible) {
     .user-img-container{
         margin-left: auto;
     }
-       
-    .profile-settings {
-        margin: 0 4.5rem 0 3rem;
-    }
 
     .user-name {
-        border-radius: 0.3rem;
+        border-bottom: 1px solid #ced4da;
         font-size: 1.5rem;
-        margin-bottom: 0.2rem;
-        padding: 1rem;
+        margin-bottom: 1rem;
+        padding: 1rem 0 1rem 3rem;
     }
 
     .profile-list li {
         border-radius: 0.5rem;
-        padding: 0.5rem 1rem;
+        padding: 0.5rem 0 0.5rem 5rem ;
+
     }
 
     .profile-list li:hover {
@@ -546,14 +552,16 @@ button:focus:not(:focus-visible) {
         top: 70px;
         transition: all 0.3s ease-out;
         transform: translateY(-22px);
-        right: 10px;
+        right: 5px;
         position: absolute;
         overflow: hidden;
         opacity: 0;
         z-index: 0;
+        pointer-events: none;
     }
 
     .toggle-user-menu {
+        pointer-events: auto;
         z-index: 3;
     }
 
