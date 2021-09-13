@@ -11,8 +11,8 @@
     <div class="prof">
       <!--profile image-->
       <div class="img-wrapper">
-        <% if( userId.profilePhoto.imageType !== undefined) {%>
         <div class="prof-img-container">
+        <% if( userId.profilePhoto.imageType !== undefined) {%>
           <img class="prof-img" src="data:<%= userId.profilePhoto.imageType%>;base64,<%=userId.profilePhoto.imageBase%>"
             alt="profile imge">
           <% }else{ %>
