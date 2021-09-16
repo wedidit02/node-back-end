@@ -10,6 +10,10 @@
     --btn-color: #053742;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 a {
     display: block;
     text-decoration: none;
@@ -19,6 +23,7 @@ a {
 body {
     font-family: 'Ubuntu', sans-serif;
     background-color: #F3F1F5;
+    padding-bottom:  20px;
 }
 
 h1,
@@ -80,13 +85,15 @@ button:focus:not(:focus-visible) {
     background-color: var(--btn-color);
     color: #fff;
 }
-.btn:disabled{
+
+.btn:disabled {
     color: #ced4da;
     cursor: default;
 }
-.btn:disabled:hover{
+
+.btn:disabled:hover {
     border-color: #ced4da;
-    background-color:#fff;
+    background-color: #fff;
 }
 
 .form-control {
@@ -233,14 +240,16 @@ button:focus:not(:focus-visible) {
 .nav-signup:hover {
     text-decoration: underline;
 }
-.user-img-container{
+
+.user-img-container {
     width: 3rem;
     height: 3rem;
     margin: auto 0;
     overflow: hidden;
     cursor: pointer;
-    border-radius:50%;
+    border-radius: 50%;
 }
+
 .profile-img {
     width: 100%;
     height: auto;
@@ -375,6 +384,7 @@ button:focus:not(:focus-visible) {
         transform: translateY(-850px);
         z-index: 2;
     }
+
     .profile-wrapper::after {
         content: "";
         background-color: black;
@@ -388,7 +398,8 @@ button:focus:not(:focus-visible) {
         text-align: right;
         margin: 1rem 2rem;
     }
-    .user-img-container{
+
+    .user-img-container {
         margin-left: auto;
     }
 
@@ -401,7 +412,7 @@ button:focus:not(:focus-visible) {
 
     .profile-list li {
         border-radius: 0.5rem;
-        padding: 0.5rem 0 0.5rem 5rem ;
+        padding: 0.5rem 0 0.5rem 5rem;
 
     }
 
@@ -655,6 +666,9 @@ button:focus:not(:focus-visible) {
 
 /* footer */
 footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     background-color: var(--primary-color);
     color: #fff;
     text-align: center;
