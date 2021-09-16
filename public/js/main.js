@@ -1,4 +1,3 @@
-
 // toggler for user profile
 const userProfileMenu = document.querySelector("#profile-menu");
 const userMenuPhone = document.querySelector("#menu-on-phone");
@@ -7,27 +6,25 @@ const profileSettings = document.querySelector("#prof-settings");
 const closeIcon = document.querySelector("#close-menu-icon");
 
 // toggler for user profile on widescreen
-try{
-userProfileMenu.addEventListener("click", () => {
-  profileSettings.classList.toggle("toggle-user-menu")
-});
-// toggle for user on Phones
-hamburgerMenu.addEventListener("click", () =>{
-  menuToggler();
-});
-closeIcon.addEventListener("click", () =>{
-  menuToggler();
-});
-}catch{}
+try {
+  userProfileMenu.addEventListener("click", () => {
+    profileSettings.classList.toggle("toggle-user-menu");
+  });
+  // toggle for user on Phones
+  hamburgerMenu.addEventListener("click", () => {
+    menuToggler();
+  });
+  closeIcon.addEventListener("click", () => {
+    menuToggler();
+  });
+} catch {}
 
 // function for menu on mobile Phones
 function menuToggler() {
-  userMenuPhone.classList.toggle("toggle-user-menu")
-  closeIcon.classList.toggle("close-icon-show")
-  hamburgerMenu.classList.toggle("hamburger-hidden")
-};
-
-
+  userMenuPhone.classList.toggle("toggle-user-menu");
+  closeIcon.classList.toggle("close-icon-show");
+  hamburgerMenu.classList.toggle("hamburger-hidden");
+}
 
 // // Cartigory menu
 // const menu = document.querySelector('.cartigory-list-menu button');
@@ -44,8 +41,6 @@ function menuToggler() {
 // const password = document.querySelector('#password');
 // const passwordconfirm = document.querySelector('#passwordconfirm');
 // const signupButton = document.querySelector('.signup-button');
-
-
 
 // home.addEventListener("click", () =>{
 //     home.classList.toggle("list")
