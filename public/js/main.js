@@ -44,22 +44,35 @@ try {
 
 function checkStorage() {
   if (localStorage.CartItem) {
-    const totalItem = JSON.parse(localStorage.CartItem).length;
-    totalItemInCart(totalItem);
+    const totalItem = JSON.parse(localStorage.CartItem);
+    totalItemInCart(totalItem.length);
+    const value = addToCart.value;
+    if (totalItem.includes(value)) {
+      addToCart.classList.add("added");
+      addToCart.innerHTML = "Added";
+    }
     return;
   }
+  addToCart.classList.remove("added");
+  addToCart.innerHTML = "Add Cart";
   cartItemCount.style.opacity = "0";
 }
+
 function cartItem(e) {
   if (localStorage.CartItem) {
-    let cartItemLocalS = JSON.parse(localStorage.CartItem);
-    getProductId1 = [...cartItemLocalS, e];
-    localStorage.setItem("CartItem", JSON.stringify(getProductId1));
+    let items = JSON.parse(localStorage.CartItem);
+    const isIn = items.filter((item) => {
+      return item == e;
+    });
+    console.log(isIn);
+    if (isIn.length == 0) {
+      const getProductId = [...items, e];
+      localStorage.setItem("CartItem", JSON.stringify(getProductId));
+    }
   } else {
     localStorage.setItem("CartItem", JSON.stringify([e]));
   }
-  const totalItem = JSON.parse(localStorage.CartItem).length;
-  totalItemInCart(totalItem);
+  checkStorage();
 }
 
 function totalItemInCart(nubm) {
