@@ -20,15 +20,25 @@
     <!-- search -->
     <div class="nav-search">
       <form class="search-form">
-        <input class="search-input" type="search" name="q" aria-label="Search through site content"
-          placeholder="search" />
-        <button class="search-btn color-btn"><i class="fas fa-search search-icon"></i></button>
+        <input
+          class="search-input"
+          type="search"
+          name="q"
+          aria-label="Search through site content"
+          placeholder="search"
+        />
+        <button class="search-btn color-btn">
+          <i class="fas fa-search search-icon"></i>
+        </button>
       </form>
     </div>
     <!-- cart -->
-    <a class="shopping-cart" href="#">
-      <span class="fas fa-shopping-cart cart-icon"></span>
-    </a>
+    <div class="cart-container">
+      <a class="shopping-cart" href="#">
+        <span class="fas fa-shopping-cart cart-icon"></span>
+        <span class="count-item"></span>
+      </a>
+    </div>
     <% if(userId === null ) { %>
     <!-- nav login button -->
     <a class="nav-login" href="/user/login">login</a>
@@ -41,11 +51,17 @@
         <div class="user-profile" id="profile-menu">
           <div class="user-img-container">
             <% if(userId.profilePhoto.imageType !== undefined) {%>
-            <img class="profile-img"
+            <img
+              class="profile-img"
               src="data:<%= userId.profilePhoto.imageType%>;base64,<%=userId.profilePhoto.imageBase%>"
-              alt="profile imge">
+              alt="profile imge"
+            />
             <% }else{ %>
-            <img class="profile-img" src="logo/profile.jpeg " alt="profile imge">
+            <img
+              class="profile-img"
+              src="logo/profile.jpeg "
+              alt="profile imge"
+            />
             <% } %>
           </div>
         </div>
@@ -53,7 +69,7 @@
           <li>
             <div class="profile-settings" id="prof-settings">
               <div class="user-name color-btn">
-                <h3> Hi <%= userId.name %> </h3>
+                <h3>Hi <%= userId.name %></h3>
               </div>
               <ul class="profile-list">
                 <li>

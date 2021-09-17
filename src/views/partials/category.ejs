@@ -1,104 +1,110 @@
 <!-- product category section -->
 <section id="category">
   <!-- search bar only show on mobile Phones -->
-<section id="search-bar-mobile">
-  <div class="search-for-mobile">
+  <div id="search-bar-mobile" class="search-for-mobile">
     <form class="search-form">
-      <input class="search-input" type="search" name="q" aria-label="Search through site content" placeholder="Search">
-      <button class="search-btn"><i class="fas fa-search search-icon"></i></button>
+      <input
+        class="search-input"
+        type="search"
+        name="q"
+        aria-label="Search through site content"
+        placeholder="Search"
+      />
+      <button class="search-btn">
+        <i class="fas fa-search search-icon"></i>
+      </button>
     </form>
   </div>
+  <div class="product-category color-navbar2">
+    <ul class="category-wrapper-phone">
+      <li class="filter">
+        <a href="#">Filter</a>
+      </li>
+      <% if(userId === null ) { %>
+      <li class="wrapper-login-phones">
+        <a class="nav-login-phone" href="/user/login">Login</a>
+        <a class="nav-signup-phone" href="/user/signup">Sign up</a>
+      </li>
+      <% } %>
+    </ul>
+    <ul class="category-wrapper">
+      <li class="category-items">
+        <div class="category-name">
+          <h4 class="home">Home appliances</h4>
+        </div>
+        <ul class="item-list">
+          <li><a href="./index.html">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+        </ul>
+      </li>
+      <li class="category-items">
+        <div class="category-name">
+          <h4 class="phone">Phones</h4>
+        </div>
+        <ul class="item-list">
+          <li><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+        </ul>
+      </li>
+      <li class="category-items">
+        <div class="category-name">
+          <h4 class="computer">Computers</h4>
+        </div>
+        <ul class="item-list">
+          <li><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+        </ul>
+      </li>
+      <li class="category-items">
+        <div class="category-name">
+          <h4 class="game">Games</h4>
+        </div>
+        <ul class="item-list">
+          <li><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+        </ul>
+      </li>
+      <li class="category-items">
+        <div class="category-name">
+          <h4 class="fashion">Fashions</h4>
+        </div>
+        <ul class="item-list">
+          <li><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+        </ul>
+      </li>
+      <li class="category-items">
+        <div class="category-name">
+          <h4 class="housing">Housing</h4>
+        </div>
+        <ul class="item-list">
+          <li><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+        </ul>
+      </li>
+      <li class="category-items">
+        <div class="category-name">
+          <h4 class="accessorie">Accessories</h4>
+        </div>
+        <ul class="item-list">
+          <li><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
 </section>
-    <div class="product-category color-navbar2">
-      <ul class="category-wrapper-phone">
-        <li class="filter">
-          <a href="#">Filter</a>
-        </li>
-        <% if(userId === null ) { %>
-        <li class="wrapper-login-phones">
-          <a class="nav-login-phone" href="/user/login">Login</a>
-          <a class="nav-signup-phone" href="/user/signup">Sign up</a>
-        </li>
-        <% } %>
-      </ul>
-      <ul class="category-wrapper">
-        <li class="category-items">
-          <div class="category-name">
-            <h4 class="home">Home appliances</h4>
-          </div>
-          <ul class="item-list">
-            <li><a href="./index.html">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-          </ul>
-        </li>
-        <li class="category-items">
-          <div class="category-name">
-            <h4 class="phone">Phones</h4>
-          </div>
-          <ul class="item-list">
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-          </ul>
-        </li>
-        <li class="category-items">
-          <div class="category-name">
-            <h4 class="computer">Computers</h4>
-          </div>
-          <ul class="item-list">
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-          </ul>
-        </li>
-        <li class="category-items">
-          <div class="category-name">
-            <h4 class="game">Games</h4>
-          </div>
-          <ul class="item-list">
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-          </ul>
-        </li>
-        <li class="category-items">
-          <div class="category-name">
-            <h4 class="fashion">Fashions</h4>
-          </div>
-          <ul class="item-list">
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-          </ul>
-        </li>
-        <li class="category-items">
-          <div class="category-name">
-            <h4 class="housing">Housing</h4>
-          </div>
-          <ul class="item-list">
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-          </ul>
-        </li>
-        <li class="category-items">
-          <div class="category-name">
-            <h4 class="accessorie">Accessories</h4>
-          </div>
-          <ul class="item-list">
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </section>

@@ -4,6 +4,31 @@ const userMenuPhone = document.querySelector("#menu-on-phone");
 const hamburgerMenu = document.querySelector("#hamburger-menu");
 const profileSettings = document.querySelector("#prof-settings");
 const closeIcon = document.querySelector("#close-menu-icon");
+const cartItemCount = document.querySelector(".count-item");
+const addToCart = document.querySelector("#add-to-cart");
+
+addToCart.onclick = (event) => {
+  console.log(event.target.value);
+
+  const currentTotalCartItem = 1 + parseInt(cartItemCount.innerText);
+  if (isNaN(currentTotalCartItem)) {
+    console.log("hiii");
+    cartItemCount.innerHTML = 1;
+  } else {
+    cartItemCount.innerHTML = currentTotalCartItem;
+  }
+  console.log(currentTotalCartItem);
+  let e = event.target.value;
+
+  try {
+    const cartItemLocalS =JSON.parse(localStorage.CartItem);
+    console.log(cartItemLocalS);
+    getProductId1 = [...cartItemLocalS, e];
+    localStorage.setItem("CartItem", JSON.stringify(getProductId1));
+  } catch {
+    localStorage.setItem("CartItem", JSON.stringify([e]));
+  }
+};
 
 // toggler for user profile on widescreen
 try {

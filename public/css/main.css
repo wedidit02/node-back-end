@@ -23,7 +23,7 @@ a {
 body {
     font-family: 'Ubuntu', sans-serif;
     background-color: #F3F1F5;
-    padding-bottom:  20px;
+    padding-bottom: 20px;
 }
 
 h1,
@@ -232,8 +232,32 @@ button:focus:not(:focus-visible) {
     font-size: 1.5rem;
 }
 
+.cart-container{
+    position: relative;
+    height: 100%;
+}
 .shopping-cart {
     color: var(--btn-color);
+    font-size: 1.5rem;
+    margin: auto 1rem;
+}
+
+.count-item {
+    background-color: #FF5C58;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    display: inline-block;
+    position: absolute;
+    top: -4.5px;
+    left: 32px;
+    min-width: 15px;
+    height: 15px;
+    font-size: 10px;
+    font-weight: 600;
+    color: #fff;
+    display: grid;
+    padding: .1rem;
 }
 
 .nav-login:hover,
@@ -364,11 +388,6 @@ button:focus:not(:focus-visible) {
 
     .search-input:focus+.search-btn {
         border-radius: 0 5px 5px 0;
-    }
-
-    .shopping-cart {
-        font-size: 1.5rem;
-        margin: auto 1rem;
     }
 
     /* menu */
