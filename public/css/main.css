@@ -68,6 +68,7 @@ button:focus:not(:focus-visible) {
     margin-bottom: 0.5rem;
 }
 
+
 .btn {
     background-color: #fff;
     border: 1px solid #ced4da;
@@ -95,7 +96,13 @@ button:focus:not(:focus-visible) {
     border-color: #ced4da;
     background-color: #fff;
 }
-
+.added,.added:hover{
+    background-color: #7FC8A9 !important;
+    border: none !important;
+    color: #fff !important;
+    cursor: default;
+    pointer-events: none;
+}
 .form-control {
     border: 1px solid #ced4da;
     border-radius: 0.3rem;
