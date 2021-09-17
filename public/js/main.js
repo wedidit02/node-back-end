@@ -1,33 +1,55 @@
-
 // toggler for user profile
 const userProfileMenu = document.querySelector("#profile-menu");
 const userMenuPhone = document.querySelector("#menu-on-phone");
 const hamburgerMenu = document.querySelector("#hamburger-menu");
 const profileSettings = document.querySelector("#prof-settings");
 const closeIcon = document.querySelector("#close-menu-icon");
+const cartItemCount = document.querySelector(".count-item");
+const addToCart = document.querySelector("#add-to-cart");
+
+addToCart.onclick = (event) => {
+  console.log(event.target.value);
+
+  const currentTotalCartItem = 1 + parseInt(cartItemCount.innerText);
+  if (isNaN(currentTotalCartItem)) {
+    console.log("hiii");
+    cartItemCount.innerHTML = 1;
+  } else {
+    cartItemCount.innerHTML = currentTotalCartItem;
+  }
+  console.log(currentTotalCartItem);
+  let e = event.target.value;
+
+  try {
+    const cartItemLocalS =JSON.parse(localStorage.CartItem);
+    console.log(cartItemLocalS);
+    getProductId1 = [...cartItemLocalS, e];
+    localStorage.setItem("CartItem", JSON.stringify(getProductId1));
+  } catch {
+    localStorage.setItem("CartItem", JSON.stringify([e]));
+  }
+};
 
 // toggler for user profile on widescreen
-try{
-userProfileMenu.addEventListener("click", () => {
-  profileSettings.classList.toggle("toggle-user-menu")
-});
-// toggle for user on Phones
-hamburgerMenu.addEventListener("click", () =>{
-  menuToggler();
-});
-closeIcon.addEventListener("click", () =>{
-  menuToggler();
-});
-}catch{}
+try {
+  userProfileMenu.addEventListener("click", () => {
+    profileSettings.classList.toggle("toggle-user-menu");
+  });
+  // toggle for user on Phones
+  hamburgerMenu.addEventListener("click", () => {
+    menuToggler();
+  });
+  closeIcon.addEventListener("click", () => {
+    menuToggler();
+  });
+} catch {}
 
 // function for menu on mobile Phones
 function menuToggler() {
-  userMenuPhone.classList.toggle("toggle-user-menu")
-  closeIcon.classList.toggle("close-icon-show")
-  hamburgerMenu.classList.toggle("hamburger-hidden")
-};
-
-
+  userMenuPhone.classList.toggle("toggle-user-menu");
+  closeIcon.classList.toggle("close-icon-show");
+  hamburgerMenu.classList.toggle("hamburger-hidden");
+}
 
 // // Cartigory menu
 // const menu = document.querySelector('.cartigory-list-menu button');
@@ -44,8 +66,6 @@ function menuToggler() {
 // const password = document.querySelector('#password');
 // const passwordconfirm = document.querySelector('#passwordconfirm');
 // const signupButton = document.querySelector('.signup-button');
-
-
 
 // home.addEventListener("click", () =>{
 //     home.classList.toggle("list")

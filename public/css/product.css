@@ -95,12 +95,13 @@
     margin: 0.5rem 0 2rem 0;
 }
 
-.product-description {
-    margin: 1rem 0 2rem 0;
+.price {
+    margin-top: 1.5rem;
+    display: inline-block;
 }
 
-.price {
-    display: inline-block;
+.product-description {
+    margin: 0.5rem 0 2rem 0;
 }
 
 .product-btn-links {

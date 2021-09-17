@@ -33,7 +33,13 @@
 
 .product-name {
     font-weight: 600;
+    font-size: medium;
     padding-bottom: 0.5rem;
+}
+
+.price {
+    border-bottom: 1px solid #ececec;
+    margin: 0.5rem 0 0.5rem 0;
 }
 
 @media screen and (max-width:850px) {
@@ -104,7 +110,7 @@
 
     /* product cards */
     .cards-container {
-        grid-template-columns:repeat(5, minmax(200.2px, 244.4px));
+        grid-template-columns: repeat(5, minmax(200.2px, 244.4px));
         grid-gap: 1rem;
         padding: 2.5rem 2rem 0.5rem 2rem;
     }
@@ -125,8 +131,7 @@
         height: 12rem;
     }
 
-    .product-img {
-    }
+    .product-img {}
 
     .cards-details {
         padding: 0.5rem;
