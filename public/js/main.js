@@ -4,33 +4,15 @@ const userMenuPhone = document.querySelector("#menu-on-phone");
 const hamburgerMenu = document.querySelector("#hamburger-menu");
 const profileSettings = document.querySelector("#prof-settings");
 const closeIcon = document.querySelector("#close-menu-icon");
-const cartItemCount = document.querySelector(".count-item");
+//<---const for Cart--->
 const addToCart = document.querySelector("#add-to-cart");
+const cartItemCount = document.querySelector(".count-item");
 
-addToCart.onclick = (event) => {
-  console.log(event.target.value);
+const cartHref = document.querySelector("#cart-href");
 
-  const currentTotalCartItem = 1 + parseInt(cartItemCount.innerText);
-  if (isNaN(currentTotalCartItem)) {
-    console.log("hiii");
-    cartItemCount.innerHTML = 1;
-  } else {
-    cartItemCount.innerHTML = currentTotalCartItem;
-  }
-  console.log(currentTotalCartItem);
-  let e = event.target.value;
+console.log(cartHref);
 
-  try {
-    const cartItemLocalS =JSON.parse(localStorage.CartItem);
-    console.log(cartItemLocalS);
-    getProductId1 = [...cartItemLocalS, e];
-    localStorage.setItem("CartItem", JSON.stringify(getProductId1));
-  } catch {
-    localStorage.setItem("CartItem", JSON.stringify([e]));
-  }
-};
-
-// toggler for user profile on widescreen
+// <--toggler for user profile-->
 try {
   userProfileMenu.addEventListener("click", () => {
     profileSettings.classList.toggle("toggle-user-menu");
@@ -50,6 +32,68 @@ function menuToggler() {
   closeIcon.classList.toggle("close-icon-show");
   hamburgerMenu.classList.toggle("hamburger-hidden");
 }
+// <--End of toggler for user profile-->
+
+//<---Cart--->
+checkStorage();
+
+window.addEventListener("storage", checkStorage, false);
+
+try {
+  addToCart.onclick = (event) => {
+    let e = event.target.value;
+    cartItem(e);
+  };
+} catch {}
+
+function cartItem(_id) {
+  if (sessionStorage.CartItem) {
+    let items = JSON.parse(sessionStorage.CartItem);
+    const isIn = items.filter((item) => {
+      return item._id == _id;
+    });
+    console.log(isIn);
+    if (isIn.length == 0) {
+      const getProductId = [...items, { _id }];
+      sessionStorage.setItem("CartItem", JSON.stringify(getProductId));
+    }
+  } else {
+    sessionStorage.setItem("CartItem", JSON.stringify([{ _id }]));
+  }
+  checkStorage();
+}
+
+function checkStorage() {
+  if (sessionStorage.CartItem) {
+    const totalItem = JSON.parse(sessionStorage.CartItem);
+
+    totalItemInCart(totalItem.length);
+
+    try {
+      const value = addToCart.value;
+      totalItem.map((item) => {
+        if (item._id.includes(value)) {
+          addToCart.classList.add("added");
+          addToCart.innerHTML = "Added";
+        }
+      });
+
+    } catch {}
+    return;
+  }
+  
+  try {
+    addToCart.classList.remove("added");
+    addToCart.innerHTML = "Add Cart";
+    cartItemCount.style.opacity = "0";
+  } catch {}
+}
+
+function totalItemInCart(nubm) {
+  cartItemCount.style.opacity = "1";
+  cartItemCount.innerHTML = nubm;
+}
+//<--End of Cart-->
 
 // // Cartigory menu
 // const menu = document.querySelector('.cartigory-list-menu button');

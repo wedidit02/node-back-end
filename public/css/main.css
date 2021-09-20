@@ -68,6 +68,7 @@ button:focus:not(:focus-visible) {
     margin-bottom: 0.5rem;
 }
 
+
 .btn {
     background-color: #fff;
     border: 1px solid #ced4da;
@@ -94,6 +95,15 @@ button:focus:not(:focus-visible) {
 .btn:disabled:hover {
     border-color: #ced4da;
     background-color: #fff;
+}
+
+.added,
+.added:hover {
+    background-color: #7FC8A9 !important;
+    border: none !important;
+    color: #fff !important;
+    cursor: default;
+    pointer-events: none;
 }
 
 .form-control {
@@ -232,10 +242,11 @@ button:focus:not(:focus-visible) {
     font-size: 1.5rem;
 }
 
-.cart-container{
+.cart-container {
     position: relative;
     height: 100%;
 }
+
 .shopping-cart {
     color: var(--btn-color);
     font-size: 1.5rem;
@@ -250,7 +261,7 @@ button:focus:not(:focus-visible) {
     display: inline-block;
     position: absolute;
     top: -4.5px;
-    left: 32px;
+    left: 20px;
     min-width: 15px;
     height: 15px;
     font-size: 10px;
@@ -258,6 +269,7 @@ button:focus:not(:focus-visible) {
     color: #fff;
     display: grid;
     padding: .1rem;
+    opacity: 0;
 }
 
 .nav-login:hover,
@@ -526,7 +538,8 @@ button:focus:not(:focus-visible) {
     }
 
     .search-input {
-        width: 18rem;
+        width: 23rem;
+        height: 2.5rem;
         padding-left: 1rem;
     }
 
@@ -540,12 +553,18 @@ button:focus:not(:focus-visible) {
         height: 2.6rem;
         padding: 0.5rem 0;
     }
+    .search-icon{
+        width: 100%;
+        height: 100%;
+    }
 
     .shopping-cart {
         font-size: 2rem;
         margin: auto 2rem;
     }
-
+    .count-item {
+        left: 25px;
+    }
     .cart-icon {
         width: 2.6rem;
     }
