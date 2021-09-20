@@ -68,7 +68,9 @@ const userRouter = require("./routes/user");
 const guestRouter = require("./routes/guest");
 const sellerRouter = require("./routes/seller");
 const productRouter = require("./routes/post");
+const getData = require("./routes/getData");
 
+app.use("/data", getData);
 app.use("/user/post", productRouter);
 app.use("/user/seller", sellerRouter);
 app.use("/user", userRouter);

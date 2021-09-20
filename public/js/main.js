@@ -8,6 +8,10 @@ const closeIcon = document.querySelector("#close-menu-icon");
 const addToCart = document.querySelector("#add-to-cart");
 const cartItemCount = document.querySelector(".count-item");
 
+const cartHref = document.querySelector("#cart-href");
+
+console.log(cartHref);
+
 // <--toggler for user profile-->
 try {
   userProfileMenu.addEventListener("click", () => {
@@ -42,37 +46,47 @@ try {
   };
 } catch {}
 
-function checkStorage() {
-  if (localStorage.CartItem) {
-    const totalItem = JSON.parse(localStorage.CartItem);
-    totalItemInCart(totalItem.length);
-    const value = addToCart.value;
-    if (totalItem.includes(value)) {
-      addToCart.classList.add("added");
-      addToCart.innerHTML = "Added";
-    }
-    return;
-  }
-  addToCart.classList.remove("added");
-  addToCart.innerHTML = "Add Cart";
-  cartItemCount.style.opacity = "0";
-}
-
-function cartItem(e) {
-  if (localStorage.CartItem) {
-    let items = JSON.parse(localStorage.CartItem);
+function cartItem(_id) {
+  if (sessionStorage.CartItem) {
+    let items = JSON.parse(sessionStorage.CartItem);
     const isIn = items.filter((item) => {
-      return item == e;
+      return item._id == _id;
     });
     console.log(isIn);
     if (isIn.length == 0) {
-      const getProductId = [...items, e];
-      localStorage.setItem("CartItem", JSON.stringify(getProductId));
+      const getProductId = [...items, { _id }];
+      sessionStorage.setItem("CartItem", JSON.stringify(getProductId));
     }
   } else {
-    localStorage.setItem("CartItem", JSON.stringify([e]));
+    sessionStorage.setItem("CartItem", JSON.stringify([{ _id }]));
   }
   checkStorage();
+}
+
+function checkStorage() {
+  if (sessionStorage.CartItem) {
+    const totalItem = JSON.parse(sessionStorage.CartItem);
+
+    totalItemInCart(totalItem.length);
+
+    try {
+      const value = addToCart.value;
+      totalItem.map((item) => {
+        if (item._id.includes(value)) {
+          addToCart.classList.add("added");
+          addToCart.innerHTML = "Added";
+        }
+      });
+
+    } catch {}
+    return;
+  }
+  
+  try {
+    addToCart.classList.remove("added");
+    addToCart.innerHTML = "Add Cart";
+    cartItemCount.style.opacity = "0";
+  } catch {}
 }
 
 function totalItemInCart(nubm) {

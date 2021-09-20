@@ -1,16 +1,16 @@
 <!-- product cards -->
 <section id="product-cards">
     <div class="cards-container">
-        <% if(products.length !== 0) {%>
-        <% products.forEach((product)=>{ %>
-        <%if(userId === null){%>
+        <% if(products.length !== 0) {-%>
+        <% products.forEach((product)=>{ -%>
+        <%if(userId === null){-%>
         <a class="cards-item" href="/post/<%=product._id%>">
-            <% } else { %>
-        <a class="cards-item" href="/user/post/<%=product._id%>">
-            <%}%>
+            <% } else { -%>
+        <a class="cards-item" href="/user/post/<%=product._id-%>">
+            <%}-%>
             <div class="img-container">
                 <img class="product-img"
-                    src="data:<%=product.productImages[0].imageType%>;base64,<%=product.productImages[0].imageBase%>"
+                    src="data:<%=product.productImages[0].imageType%>;base64,<%=product.productImages[0].imageBase-%>"
                     alt="product image">
             </div>
             <div class="cards-details">
@@ -25,5 +25,7 @@
                 </div>
             </div>
         </a>
-        <% })} %>
+        <% })}else{-%>
+            <h1>No product to display</h1>
+        <%}-%> 
     </div>
