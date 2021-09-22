@@ -84,7 +84,7 @@ router
     }
   });
 
-router.get("/cart", (req, res) => {
+router.get("/cart", checkAuthenticated, (req, res) => {
   res.render("cart", { userId: req.user, products: [], title: "Cart" });
 });
 

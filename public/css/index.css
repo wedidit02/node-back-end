@@ -28,6 +28,7 @@
 }
 
 .cards-details {
+    position: relative;
     color: #000;
 }
 
@@ -40,6 +41,39 @@
 .price {
     border-bottom: 1px solid #ececec;
     margin: 0.5rem 0 0.5rem 0;
+}
+
+.product-btn-links {
+    display: flex;
+    position: absolute;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    margin-top: 0.5rem;
+    width: calc(100% - 1rem);
+    bottom: .5rem;
+
+}
+
+.product-btn-links button {
+    padding: 0 .5rem;
+}
+
+.product-btn-links .remove-btn {
+    background-color: #E05D5D;
+    color: #fff;
+    border: solid 1px transparent;
+}
+
+.product-btn-links .buy:hover {
+    background-color: #57CC99;
+    border: none;
+}
+
+.product-btn-links .remove-btn:hover {
+    background-color: #fff;
+    border: 1px solid #E05D5D;
+    color: #E05D5D;
 }
 
 @media screen and (max-width:850px) {
@@ -71,6 +105,16 @@
         padding: 0.5rem 0.7rem;
     }
 
+    .product-btn-links .remove-btn:hover {
+        background-color: #E05D5D;
+        color: #fff;
+    }
+    .product-btn-links .buy{
+        background-color: #57CC99;
+        color: #fff;
+        border: solid 1px transparent;
+    }
+
     @media screen and (min-width:520px) {
 
         .cards-container {
@@ -95,13 +139,13 @@
 
         .cards-details {
             width: 100%;
-            height: auto;
+            height: 50%;
         }
     }
 
-    @media screen and (min-width: 600px) {
+    @media screen and (min-width: 700px) {
         .cards-container {
-            grid-template-columns: auto auto auto;
+            grid-template-columns: repeat(3, minmax(180.2px, 244.4px));
         }
     }
 }
@@ -119,7 +163,7 @@
         margin: 0.2rem;
         width: 100%;
         overflow: hidden;
-        /*height: 15rem;*/
+        height: 19rem;
     }
 
     .cards-item:hover {
@@ -128,12 +172,11 @@
 
     .img-container {
         width: 100%;
-        height: 12rem;
+        height: 10rem;
     }
 
-    .product-img {}
-
     .cards-details {
+        height: 9rem;
         padding: 0.5rem;
     }
 

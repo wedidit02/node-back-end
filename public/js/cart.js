@@ -15,12 +15,13 @@ function cartItemLoop() {
       getData(JSON.stringify(store[i])), timeout(5000);
     }
   } else {
-    cartRoot.innerHTML = "";
+    cartRoot.innerHTML = `${store}` ;
     cartItemCount.style.opacity = "0";
   }
 }
 
 async function getData(e) {
+
   const cartItem = await fetchData(`http://localhost:5500/data/${e}`).then(
     (data) => data
   );
