@@ -8,7 +8,6 @@ router.get("/:data", async (req, res) => {
   const datas = JSON.parse(req.params.data);
   console.log(datas);
   const resolut = [await Product.findById(datas, (e) => e)];
-  console.log(resolut);
 
   //await findAllProducts((products) => {
   //  for (let i = 0; i < datas.length; i++) {
