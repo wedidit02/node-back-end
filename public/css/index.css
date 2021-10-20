@@ -2,6 +2,7 @@
     --primary-color: #39A2DB;
     --secondary-color: #A2DBFA;
     --btn-color: #053742;
+    --btn-color-secondary: #000;
 }
 
 .cards-container {
@@ -75,7 +76,17 @@
     border: 1px solid #E05D5D;
     color: #E05D5D;
 }
-
+.cards-details .product-btn-links{
+    justify-content: end;
+}
+.fav{
+    border: none;
+    color: var(--btn-color-secondary); 
+}
+.fav:hover{
+    background: transparent;
+    color: var(--btn-color-secondary); 
+}
 @media screen and (max-width:850px) {
 
     /* product cards */
